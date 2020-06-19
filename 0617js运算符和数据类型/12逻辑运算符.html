@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 逻辑运算符表达式:返回值一定是 boolean类型
+        // 逻辑运算符 涉及到比较大小，什么类型数据能够比较大小（数字）
+        // console.log('a'>'1');
+
+        // var res = '' == []
+        // res = '' == '' ---->[]--->''
+        // res = 0 == 0 ---->''---->0
+        // res = true
+
+        // var res = '' === []//大小相等 类型不等false
+
+        // 字符串与字符串进行比较时
+        // 1：不看长度
+        // 2: 第一个字符与第一个字符的编码(ASCII,UNICODE)比较,逼不出来 一次类推往下看
+        // var res = '123' > '顾'
+        // res = 1>'顾'.charCodeAt()
+        // res = false
+        // charCodeAt 获取字符的Unicode编码值
+        // console.log('顾'.charCodeAt());
+        var res = [] > {}
+        // res = '' > '[Object Object]' 
+        // res = 0 > NaN
+        // res = false
+        console.log(res);
+        
+
+
+        function fn(a){
+            console.log(a);
+            
+            function a(){};
+
+            console.log(a);
+
+            var a = 123;
+
+            console.log(a);
+            
+            var b = function(){};
+
+            console.log(b);
+
+            function d(){}
+            
+        }
+        fn(1);            
+        
+    </script>
+</body>
+</html>

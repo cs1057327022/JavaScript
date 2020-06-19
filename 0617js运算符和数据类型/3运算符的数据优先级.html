@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    1:从左往右计算 （） 里面最优先
+    2：全体单目排第二  ++ -- !  【单目 只有一个操作数和操作符就可以运算的】
+    3：乘法除法取余排第三；加减排第四
+    4：移位(<< >>)排第五，关系(< > <= >=)排第六
+    5：等于不等于排第七
+    6：逻辑运算符排第八，&& 优先 || 
+    7：赋值排第九
+    8：逗号成员最低
+    括号成员最高级，全体单目排第二；乘除余三，加减四，
+    移位五，关系六，等于不等于排老七，逻辑八，赋值九，逗号成员排最低
+    
+    <script>
+        var x = 1
+        var y = 3
+        var res = 3*x++
+         console.log(reso);
+         
+    </script>
+</body>
+</html>

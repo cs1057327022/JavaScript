@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    变量：值会发生该变量
+    如何创建一个变量？  var
+    变量的作用是什么？  存储数据 并 供给使用
+    如何判断一个英文单词,是否是变量
+        除了 js 关键字 var if else function for ....
+        除了 js 数据类型
+        其他都是变量
+
+    <script>
+        // var   js中的关键字 作用：声明变量
+        // = 作用赋值
+        // cs 变量名
+        // 'cs' 数据 ----> 字符串类型
+        // ----给 cs 变量赋值数据 'cs'
+        var cs = 'cs'
+        console.log(cs);
+
+        // 省略var 的变量
+        chen = 'chen'
+        console.log(chen);
+        
+        var shun
+        console.log(shun);//undefined  也是js的数据类型:表示变量已经声明为赋值
+
+        yi;
+        console.log(yi); //yi is not defined  表示 yi 变量没声明
+        
+        // 一个var 声明一堆变量
+        var aa,bb,cc;
+        console.log(aa);//undefined
+        console.log(bb);//undefined
+        console.log(cc);//undefined
+        
+        // js 代码执行的顺序默认是 从上往下执行的 如果中间出现Bug 会阻却下面代码执行
+        
+    </script>
+</body>
+</html>

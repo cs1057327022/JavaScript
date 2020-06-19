@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // parseInt() 作用 转化为整数型数值,参数是其他类型的数据
+        // ----->用，将其他数据转化为数值的整数型时候
+        /*
+        1.忽略字符串前面的空格，直到找到第一个非空格字符
+        2.如果第一个字符不是数字或者是负号，返回NaN
+        3.空字符串，返回NaN
+        4.如果第一个字符是数字，会继续解析第二个字符，直到解析完所有后续字符或遇到了一个非数字字符。
+        5.如果字符串以0x开头且后面跟数字字符，就会将其转为10进制数，同样，八进制也一样。
+        6.开头为0的字符串，转化后 忽略前面的0 找到第一个非0数字字符：返回数字，非0非数字字符：返回0
+        */
+        var str = '        f123455'
+        console.log(parseInt(str));
+        
+        var str1 = '123fgasd12314'
+        console.log(parseInt(str1),Number(str1));
+
+        var str2 = ''
+        console.log(parseInt(str2),Number(str2));
+
+        var str3 = '0xf'
+        console.log(parseInt(str3),Number(str3));
+
+        var num = 1.2
+        console.log(parseInt(num));
+        
+    </script>
+</body>
+</html>
