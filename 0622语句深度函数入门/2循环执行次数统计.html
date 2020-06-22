@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 如何统计循环体中执行次数
+        // var count = 0;
+        // var num = 0;
+        // for(var i = 0;i < 9;i++){
+            // 如何统计外面的循环执行次数 。
+            // num ++
+            // console.log('i',i);
+            // for(var j = 0;j<9;j++){
+                // 如何统计 里面for 执行的次数
+        //         count ++ 
+        //     }
+        // }
+        // console.log(count);
+        // console.log(num);
+        
+
+        // 上面的逻辑处理的数据结构
+        var arr = [
+            ['aa','2222'],
+            ['qw','2222'],
+            ['ea','2222','5555'],
+            ['gf','2222'],
+            ['ty','2222']
+        ]
+        // for(var i = 0;i<arr.length;i++){
+        //     console.log(arr[i]);
+        //     for(var j = 0;j<arr[i].length;j++){
+        //         console.log(arr[i][j]);
+                
+        //     }
+            
+        // }
+
+        for(var i = 0;i<arr.length;i++){
+            console.log(arr[i]);
+            if(arr[i].length==3){
+                for(var j = 0;j<arr[i].length;j++){
+                    console.log(arr[i][j]);
+                
+                }
+         
+            } 
+        }
+        //1：循环执行多少次
+        //2：结果多少次：只要是比执行次数少的；一定用到了条件if
+    </script>
+</body>
+</html>
