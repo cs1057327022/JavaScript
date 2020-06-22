@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = ['cs','lgd','tyl']
+
+        // 将数组变为字符串
+        // arr.toString() 将数组变为字符串并返回字符串
+        var res = arr.toString()
+        console.log(arr);
+        console.log(res);
+
+        // 讲数组变为字符串 join
+        // arr.join()将数组变为字符串
+        // --->参数位 替换','字符的内容
+        // 注意：参数只能替换一维数组中字符
+        var arr1 = ['a','c',3,[1,2]]
+        var res3 = arr1.join('======')
+        console.log(res3);
+        
+        
+        // 将res 字符串变为数组 newArr
+        // split() 将字符串进行切割，并返回数组
+        // 参数为 被切割字符
+        var newArr = res.split(',')
+        newArr[1] = '好人'
+        console.log(newArr);
+        
+
+        var str1 = '1231+asdaasd+2213154+fsafsd'
+        var res1 = str1.split('+')
+        console.log(res1);
+        
+    </script>
+</body>
+</html>
