@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,566]
+        // pop()从尾部删除，长度减1，返回被删除的元素
+        arr.pop()
+        var res1 = arr.pop()
+        console.log(res1);
+        
+
+        // shift()从头部删除，长度减1，返回被删除的元素
+        arr.shift()
+        var res = arr.shift()
+        console.log(arr,res);
+        // 注意：关于删除数组元素
+        // 1:长度是变化:for选中会有2个变化量
+        // 2:不能删除干净,i递增 长度递减导致的问题
+        var arr1 = [1,2,3,5,6,7,1231,52]
+        for(var i = 0 ;i<=arr1.length;i++){
+            arr1.pop()
+            console.log(++count)
+            console.log(arr1)
+        }
+
+        // 需求 用for 全部清空数组
+        for(var i = arr1.length ;i>0;i--){
+            arr1.pop()
+            console.log(arr1)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   var str = "今日按日子真的好呀"; // 1357
+
+      //   var newStr = "";   // 初始化字符,作用是接受结果
+      //   for (var i = 0, len = str.length; i < len; i++) {
+      //     if (i % 2 == 1) {
+      //       //   console.log(str[i]+',');
+      //       var str1 = str[i] + ",";
+      //       console.log(str1);
+      //     } else {
+      //       var str1 = str[i];
+      //       console.log(str1)
+      //     }
+      //     newStr += str1;  // newStr = newStr + str1
+      //     console.log(newStr,'========')
+      //   }
+      //   console.log(newStr);
+      //   var res = newStr.split(",");
+      //   console.log(res);
+
+      // 错误
+      //   for (var i = 0, len = str.length; i < len; i++) {
+      //       if(i%2==1){
+      //         // 字符串不能改变；
+      //           str[i] = str[i]+','
+      //           console.log(str[i])
+      //       }
+      //   }
+      //   console.log(str)
+      // 今日,按日,子真,的好,呀
+
+      // 九九乘法表  （for 循环规律）
+      // 规律一 外面执行一次 里面执行多次  --> 嵌套for 
+      //  ----> 里面的for 每次都是初始化执行
+      // 规律二：里面for 执行的次数是递减的；变化的
+      //  ----> 循环语句中一定是有两个变量，要么再语句一 要么再语句二
+
+      var count = 0
+      for (var i = 1; i < 10; i++) {
+        //   console.log('\'\'')  // \ 转义字符
+        for (var j = i; j < 10; j++) {
+          console.log(`${i}  x ${j} = ${i * j}`);
+          ++count
+        }
+      }
+      console.log(count)
+    </script>
+    
+  </body>
+</html>
