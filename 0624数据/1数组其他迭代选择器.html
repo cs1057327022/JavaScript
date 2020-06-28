@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 返回一个对象 可以检测数组是否被迭代运行完成
+        var arr = [1,2,3,5,6]
+        var res = arr.entries()
+        // console.log(res.next());
+        // console.log(res.next());
+        // console.log(res.next());
+        // console.log(res.next());
+        
+
+        var a = []
+        // for(var i=0; i< arr.length; i++){   // 实际使用的是这个 
+            for (var i = 0; i < arr.length + 1; i++) {    // 注意，是length+1，比数组的长度大
+                var tem = res.next();             // 每次迭代时更新next
+                console.log(tem.done);             // 这里可以看到更新后的done都是false
+                if (tem.done !== true) {             // 遍历迭代器结束done才是true
+                    console.log(tem.value);
+                    a[i] = tem.value;
+                }
+            }
+    
+console.log(a);
+    </script>
+</body>
+</html>

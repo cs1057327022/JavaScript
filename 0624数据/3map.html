@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,5,6,5,6]
+        // map()回调函数中运算的新数组 可以实现 [深拷贝]
+        var res = arr.map(function(item){
+            console.log(item);
+            // 这里可以写数据重组的一些结果
+
+
+            return item
+        })
+        res.push('aaa')
+        console.log(res);
+        console.log(arr);
+        
+        // 浅拷贝:一个改变另一个也会改变
+        var arr1 = []
+        var res1 = arr1
+        res1.push('res新增数据')
+        console.log(res1,arr1);
+        
+    </script>
+</body>
+</html>

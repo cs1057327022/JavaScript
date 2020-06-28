@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // if for 函数 内置对象
+        // 2020-06-28 日期格式化处理
+
+        // toString
+
+        // join
+
+        // split()
+        // replace()
+
+        // find
+        // indexOf
+        // filter
+        // map
+        // forEach
+
+        // 回调函数的弊端：代码的可读性差  优势：异步处理程序，可以将执行慢的代码放在回调函数中处理
+        // 回调函数是伪异步
+        function foo(callback1,callback2) {
+            if(typeof callback1 == 'function' && typeof callback2 == 'function'){
+                callback1()
+                callback2()
+            }else {
+                var err = new Err('your params is not')
+                console.log(err);
+                
+            }
+        }
+        foo(function(){
+            console.log('callback1函数');
+            
+        },function(){
+            console.log('callback2函数');
+
+        })
+    </script>
+</body>
+</html>

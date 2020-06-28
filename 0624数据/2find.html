@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,442,12,30]
+        // find() 作用：查找某个数组中是否有某个元素
+        // 如果有则返回第一个被查到的元素
+        // 如果没有返回undefined
+
+        // 怎么用?
+        // 1:不但判断是否有  如果有还 需要使用这个元素
+        var res = arr.find(function(item,index){
+            // item 是数组元素 index索引值
+            // console.log(item,index)
+            return item === 30
+        })
+        console.log(res);
+        if(res !== undefined){
+            // 使用了find 查到的元素
+            var sum = res + 1
+            console.log(sum);
+            
+        }
+
+        // 如何仅仅的判断一个数组中是否含有某个元素呢\
+        // findeIndex() 判断数组中是否有某个元素:如果没有返回-1,有 返回第一个元素对应的索引值
+        var arr1 = [1,2,3]
+        var res1 = arr1.findIndex(function(item,index){
+            return item === ''
+        })
+        console.log(res1);
+        
+    </script>
+</body>
+</html>

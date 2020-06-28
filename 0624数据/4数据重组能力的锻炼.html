@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 数据重组是  现在所有知识点的综合应用
+        // 第一:你需要的是什么样子的数据结构?--->对页面的数据结构分析
+        // 第二:你获取的数哪些数据:如何利用这些数据 重新打乱;利用语句等;祖成你想要的结构
+        // 第三:不处理 直接干页面结构结合使用
+
+        // 原则是:相同结构的 类型 意义 放在数组中:不同任内 意义放在对象中:单一数据:基本数据类型
+
+        var data = [
+        {
+          Id: 1,
+          title: "手冲咖啡6杯装(定制款)",
+          price: "59",
+          mack:
+            '<span style="color: #FFFFFF;background: #AB7FD1; border-color: #AB7FD1">&#x7206;&#x54C1;</span>',
+          nice: "1742",
+          img_list_url:
+            "http://bfs.biyao.com/group1/M00/C8/19/rBACYVzH_sGAfrzRAAA8joHI5YU396.jpg",
+          type_one: "咖啡",
+          type_two: "手冲咖啡",
+        },{
+          Id: 1,
+          title: "伯爵咖啡",
+          price: "59",
+          mack:
+            '<span style="color: #FFFFFF;background: #AB7FD1; border-color: #AB7FD1">&#x7206;&#x54C1;</span>',
+          nice: "1742",
+          img_list_url:
+            "http://bfs.biyao.com/group1/M00/C8/19/rBACYVzH_sGAfrzRAAA8joHI5YU396.jpg",
+          type_one: "咖啡",
+          type_two: "手冲咖啡",
+        },
+        {
+          Id: 2,
+          title: "ANNY法式深焙袋冲咖啡2袋",
+          price: "39",
+          mack:
+            '<span style="color: #FB4C81;background: ; border-color: #FB4C81">&#x4E00;&#x8D77;&#x62FC;</span>',
+          nice: "910",
+          img_list_url:
+            "http://bfs.biyao.com/group1/M00/51/BA/rBACW1uFacCAShDcAAA5qDQqJDo607.jpg",
+          type_one: "咖啡",
+          type_two: "咖啡粉",
+        }, {
+          Id: 2,
+          title: "鹊桥咖啡",
+          price: "39",
+          mack:
+            '<span style="color: #FB4C81;background: ; border-color: #FB4C81">&#x4E00;&#x8D77;&#x62FC;</span>',
+          nice: "910",
+          img_list_url:
+            "http://bfs.biyao.com/group1/M00/51/BA/rBACW1uFacCAShDcAAA5qDQqJDo607.jpg",
+          type_one: "咖啡",
+          type_two: "咖啡粉",
+        }
+      ];
+      /*
+      [
+        {
+          type_two:'手冲咖啡',
+          list:[
+            {}
+          ]
+        },
+        {
+          type_two:'咖啡粉',
+          list:[
+            {}
+          ]
+        },
+      ]
+      */
+      
+      // 获取 咖啡粉 的数组
+      var res = []
+      var res1 = []
+      var fen = data.filter(function(item,index){
+        return item.type_two == '咖啡粉'//,res.push(item.type_two)
+      })
+      console.log(fen);
+      
+      for(var i = 0;i<res.length;i++){
+        if(res1.indexOf(res[i]) == -1){
+          res1.push(res[i])
+        }
+      }
+      console.log(res1);
+      
+      
+      // 获取 手冲咖啡 的数组
+      var fei = data.filter(function(item,index){
+        return item.type_two == '手冲咖啡'
+      })
+      console.log(fei);
+      
+      
+      for(var i = 0;i<data.length;i++){
+        if(res.indexOf(data[i].type_two)==-1){
+          res.push(data[i].type_two)
+        }
+      }
+      console.log(res);
+      
+      // var res = [
+      //   {
+      //     type_two:'咖啡粉',
+      //     list:fen
+      //   },
+      //   {
+      //     type_two:'手冲咖啡',
+      //     list:fei
+      //   }
+      // ]
+    </script>
+</body>
+</html>
