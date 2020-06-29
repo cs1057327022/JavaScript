@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function foo(){
+            // arguments 伪数组 作用：接收实参
+            // 伪数组是不能使用 数组api
+            console.log(arguments);
+            // 如何将一个伪数组变为真数组
+
+            // 方式一：
+            // var params = []
+            // for(var i = 0;i<arguments.length;i++){
+            //     params.push(arguments[i])
+            // }
+
+            // 方式二：
+            // var params = [...arguments]//es6 中内容 展开运算符
+            // console.log(params);
+
+            // 方式三
+            // Array.from() 将伪数组变为真数组  实现深拷贝
+            // 参数伪数组:返回值真数组
+            var params = Array.from(arguments)
+            console.log(params);
+            
+        }
+        foo(1,2,3,4)
+    </script>
+</body>
+</html>

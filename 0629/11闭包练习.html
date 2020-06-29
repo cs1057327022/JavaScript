@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function(window){
+            var num = 0 
+            // foo 是window属性：全局  foo 的存为指针
+            window.foo = function(){
+                // 全局函数访问 私有的 立即执行函数的num
+                console.log(num);
+                var count = 0
+                return function bar(){
+                    console.log(count++);
+                }
+            }
+        })(window)
+        var bar = foo()
+        bar()
+        bar()
+        console.log(bar);
+        
+    </script>
+</body>
+</html>
