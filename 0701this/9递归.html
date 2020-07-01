@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归:函数人不自己调用自己
+        // var count = 0
+        // 坑 死循环
+        // function foo(){
+        //     console.log(++count);
+        //     foo()
+        // }
+        // foo()
+
+        // 做递归:1:找规律(数学公式)2:找出口
+        // var count = 0
+        // function foo(){
+        //     if(count>10){
+        //         return
+        //     }
+        //     console.log(++count);
+        //     foo()
+        // }
+        // foo()
+
+        
+        function foo(n){
+            
+            return 1/2*n*(n-1)+n
+        }
+        console.log(foo(10));
+        
+    </script>
+</body>
+</html>

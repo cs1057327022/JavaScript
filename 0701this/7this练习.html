@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var num = 1;
+        // var myObject = {
+        //     num: 2,
+        //     add: function () {
+        //         this.num = 3;
+
+        //         // window 调用的
+        //         (function () {
+        //             console.log(this.num);
+        //             this.num = 4;
+        //         })();
+        //         console.log(this.num);
+        //     },
+        //     sub: function () {
+        //         console.log(this.num)
+        //     }
+        // }
+        // myObject.add(); //1  3
+        // console.log(myObject.num);//3
+        // console.log(num);//4
+        // var sub = myObject.sub;
+        // sub();//4
+
+        // var name = 'window'
+        //     var person1 = {
+        //         name: 'person1',
+        //         show1: function () {
+        //             console.log(this.name)
+        //         },
+        //         show3: function () {
+        //             return function () {
+        //                 console.log(this.name)
+        //             }
+        //         }
+        //     }
+        //     var person2 = { name: 'person2' }
+
+        //     person1.show1() //window
+        //     person1.show1.call(person2)//person2
+
+        //     person1.show3()()//window
+        //     person1.show3().call(person2)//person2
+        //     person1.show3.call(person2)()//window
+
+
+        // var name = '周超'
+        // (function(){
+        //     var name = '余菲'
+        //     console.log(this.name);
+        // })()
+
+
+        // var name = '周超'
+        // function foo(){
+        //     (function(){
+        //         var name = '余菲'
+        //         console.log(this.name);
+        //     })()
+        // }
+        // foo()
+
+        // function foo(){
+        //     console.log(this);
+        //     return function(){
+        //         console.log(this);
+        //     }
+            
+        // }
+        // var obj = {
+        //     say:foo
+        // }
+        // 存的 是 foo 函数执行的返回值
+        // var res = obj.say()
+        // res()
+        // obj.say()()
+
+        // 规律 嵌套函数:父函数中 this 不等于 子函数this 分别按套路判断
+
+
+        // (function(){
+        //     console.log(this);
+        //     return function(){
+        //         console.log(this);
+        //     }
+        // })()()
+
+
+        // var obj = {}
+        // (function(){
+        //     console.log(this);
+        //     return function(){
+        //         console.log(this);
+        //     }
+        // })().call(obj)
+
+
+        // (function(){
+        //     console.log(this);
+        //     return function(){
+        //         console.log(this);
+        //     }
+        // })().call(this)
+
+
+        var obj = {};
+        (function(){
+            console.log(this);
+            return function(){
+                console.log(this);
+            }
+        }).call(obj)()
+    </script>
+</body>
+
+</html>
