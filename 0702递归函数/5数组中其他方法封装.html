@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sort(arr){
+            if(arguments.length === 0){
+                throw new Error('param can is not undefined')
+            }
+            if(arguments.length>1){
+                throw new Error('param.length can is not gt 1')
+            }
+            if(!Array.isArray(arr)){
+                throw new Error('param munst is Array')
+            }
+            var arr = arr
+            for(var i = 0;i<arr.length;i++){
+                for(var j = i+1;j<arr.length;j++){
+                    if(arr[i]>arr[j]){
+                        var tmp = arr[i]
+                        arr[i] = arr[j]
+                        arr[j] = tmp
+                    }
+                }
+            }
+            return arr
+        }
+        var arr = [1,2,3,5,7,33,8,22]
+        // sort(arr)
+        console.log(sort(arr));
+        
+    </script>
+</body>
+</html>

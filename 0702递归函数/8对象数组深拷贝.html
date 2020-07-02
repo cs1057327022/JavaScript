@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = [{
+            name:'cs',
+            list:[
+                {name:'ddd'}
+            ]
+        }]
+        // JSON 是对象 作用处理json格式的数据 其实就是数组和对象 
+        // JSON.stringify 将数组或对象 变为json字符串 并【返回字符串】
+
+        var datastr = JSON.stringify(data)
+        console.log(datastr);
+        console.log(typeof datastr);
+        console.log(datastr.slice);
+        
+        // JSON.parse() 将json字符串转化为 数组或者对象 并【返回】数组或者对象
+        var res = JSON.parse(datastr)
+        res.push({
+            name:'csss'
+        })
+        console.log(res);
+        console.log(data);
+        // json字符串 与 普通字符串
+        // 都是字符串,没区别
+
+        //json对象与普通对象和数组区别是啥
+        // 没区别 就是普通数组和对象 就是在json 文件中按照 规定写
+        
+    </script>
+</body>
+</html>

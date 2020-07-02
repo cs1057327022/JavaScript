@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 变量或属性key 赋值js 基本类型数据 存的是数据
+        // 变量或者属性key 赋值引用类型数据  存的是【指针】
+        // var obj = {
+        //     name:'cs',
+        //     list:{}
+        // }
+        // var res ={}
+        // // xxx.xx.xxx点左边的赋值都是对象 xx本身类型是【字符串】
+        // for(var k in obj){
+        //     res[x] = obj[x]
+        // }
+        // console.log(res);
+        
+
+        // function copyObject(obj){
+        //     if(arguments.length===0){
+        //         throw new Error('arguments.length can not zero')
+        //     }
+        //     if(arguments.length>1){
+        //         throw new Error('arfuments.length can not gt 1')
+        //     }
+        //     if(obj.constructor !== Object){
+        //         throw new Error('type param must be Object')
+        //     }
+        //     var res = {}
+        //     for(var k in obj){
+        //         res[k] = obj[k]
+        //     }
+        //     return res
+        // }
+        // copyObject({
+        //     name:'cs',
+        //     age:21
+        // })
+        
+
+        // function copyArray(arr){
+        //     if(arguments.length===0){
+        //         throw new Error('arguments.length can not zero')
+        //     }
+        //     if(arguments.length>1){
+        //         throw new Error('arfuments.length can not gt 1')
+        //     }
+        //     if(!Array.isArray(arr)){
+        //         throw new Error('type param must be Array')
+        //     }
+        //     var res = []
+        //     for(var i = 0;i<arr.length;i++){
+        //         res.push(arr[i])
+        //     }
+        //     return res
+        // }
+        // var res = copyArray([1,2,3,4])
+        // console.log(res);
+        
+
+        // copy 拷贝数组或者对象 并返回结果
+        function copy(param){
+            if(arguments.length === 0){
+                throw new Error('arguments.length can not zero')
+            }
+            if(arguments.length>1){
+                throw new Error('arguments.length can not gt 1')
+            }
+            if(!(param instanceof Object)){
+                throw new Error('type param must be Array or Object')
+            }
+            // 如果参数为数组
+            if(Array.isArray(param)){
+                var res = []
+                for(var i = 0;i<param.length;i++){
+                    res.push(param[i])
+                }
+                return res
+            }
+            // 如果参数为对象 进行对象的单层拷贝
+            if(param.constructor === Object){
+                var res = {}
+                for(var k in param){
+                    res[k] = param[k]
+                }
+                return res
+            }
+        }
+        var res5 = copy({name:'cs'})
+        var res1 = copy([1,1])
+        console.log(res5);
+        console.log(res1);
+    </script>
+</body>
+</html>

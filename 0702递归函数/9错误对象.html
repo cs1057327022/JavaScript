@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function MyError(message) {
+        this.name = "MyError";
+        this.message = message || "Default Message";
+        this.stack = new Error().stack;
+      }
+      MyError.prototype = Object.create(Error.prototype);
+      MyError.prototype.constructor = MyError;
+
+      throw new MyError();
+
+      // 了解原型  Object api 错误对象 垃圾回收机制 清空闭包变量
+      // 练习函数封装  入门
+
+      // 原型面试难点； JS 设计模式  
+
+    </script>
+  </body>
+</html>

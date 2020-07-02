@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   function fun() {
+      //     console.log(this.s); // 1
+      //   }
+      //   var obj = {
+      //     s: "1",
+      //     f: fun,
+      //   };
+      //   var s = "2";
+      //   obj.f();  // 1
+      //   fun();  // 2
+
+      //   var A = {
+      //     name: "于飞",
+      //     f: function () {
+      //       console.log("姓名：" + this.name);
+      //     },
+      //   };
+      //   var B = {
+      //     name: "周超",
+      //   };
+      //   B.f = A.f;
+      //   B.f();
+      //   A.f();
+
+      // 3
+      //   var point = {
+      //     x: 0,
+      //     y: 0,
+      //     moveTo: function (x, y) {  // 1 1
+      //       var moveX = function (x) {
+      //         this.x = x;  // window.x = 1
+      //       };
+      //       var moveY = function (y) {
+      //         this.y = y;
+      //       };
+      //       moveX(x);  // window.moveX(1)
+      //       moveY(y);  // window.moveY(1)
+      //     },
+      //   };
+      //   point.moveTo(1, 1);
+      //   console.log(point.x); // 0
+      //   console.log(point.y);  // 0
+
+      //   function foo() {
+      //     console.log(this);
+      //     return function () {
+      //       console.log(this);
+      //     };
+      //   }
+      //   var obj = { foo: foo(), bar: foo };
+      //   var person = {};
+      //   foo();
+      //   foo()();
+      //   foo.call(obj);
+      //   foo().call(this);
+      //   obj.foo();
+      //   obj.bar().bind(person)();
+
+      //   var a = 10;
+      //   // 计时器式window 触发；是异步的；；所以计时器里面的的function 函数this 执行window0
+      //   var oTimer1 = setInterval(function () {
+      //     var a = 20;
+      //     console.log(this.a); // 10
+      //     clearInterval(oTimer1);
+      //   }, 100);
+
+      //   var a = 10;
+      //   var foo = {
+      //     a: 20,
+      //     // fn 赋值
+      //     fn: (function () {
+      //       console.log(this); // window
+      //       console.log(this.a); // 10
+      //     })(),
+      //   };
+
+      //   function Point(x, y) {
+      //     console.log(this);
+      //     this.x = x;
+      //     this.y = y;
+      //     this.moveTo = function (x, y) {
+      //       this.x = x;
+      //       this.y = y;
+      //       console.log(this.x);
+      //       console.log(this.y);
+      //     };
+      //   }
+      //   var p1 = new Point(0, 0);
+      //   // p1{x:0,y:0,moveTo:fun}
+
+      //   var p2 = {
+      //     x: 0,
+      //     y: 0,
+      //   };
+      //   p1.moveTo(1, 1);
+      //   // 函数触发是由有优先级的  new>apply call bind > 对象调用
+      //   p1.moveTo.apply(p2, [10, 10]);
+
+      //   console.log(x);
+      //   console.log(y);
+
+      // 附加题
+      //   (function () {
+      //     eval("console.log(this)"); // Window
+      //   })();
+      //   function Foo() {
+      //     this.bar = function () {f
+      //       eval("console.log(this)"); // foo
+      //     };
+      //   }
+      //   var foo = new Foo();
+      //   foo.bar();
+    </script>
+  </body>
+</html>
+
+                  
