@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 求一个串中字符出现最多的一个字符 并统计次数
+      // 思路: 用对象统计；将不重复字符变为 对象中KEY value统计出现次数 ,求value 最大值
+      // ----> 第一步  将字符串变为 对象中不重复key 并初始值为0  去重处理
+      // ----> 第二步  统计是字符串中每一个字符重复出现了多少次
+      //             --->对象中key 再 字符串中出现多少次
+      // ----> 第三步  比较对象中value 的最大值；以及对应的key
+      var str = "dfjqowerjoqweur00";
+
+      // 第一步
+      var obj = {};
+      var flag = false; // 验证结果 true 存在  false 不存在
+      for (var i = 0; i < str.length; i++) {
+        // 验证 obj 是否存在 str[i]
+        for (var x in obj) {
+          // 验证方式：用str 中每一个字符 与 obj中的key 进行比较
+          if (str[i] === x) {
+            // obj 中 存在这个key
+            flag = true;
+            break;
+          } else {
+            flag = false;
+          }
+        }
+        // 去重 新增；先验证 再 添加
+        // 当不存在才新增，
+        if (!flag) {
+          obj[str[i]] = 0;
+        }
+      }
+
+      // 第二部：统计obj 对象下key 再str中出现了多少次 value 表示出现次数
+
+      for (var x in obj) {
+        for (var j = 0; j < str.length; j++) {
+          if (x === str[j]) {
+            ++obj[x];
+          }
+        }
+      }
+
+      console.log(obj);
+      var max = 0;
+      var maxKey = '';
+      for(var y in obj){
+          if(max<obj[y]){
+              max=obj[y]
+              maxKey = y
+          }
+      }
+      console.log(maxKey,max)
+
+      // 排错
+      // 1：根据输出结果 判断哪一个代码没执行
+      // 2：打断点到任务会导致不执行这个代码的 语句上。或这行代码
+      // 3：监听；与打断点有关的变量。目的为了查看赋值变化过程
+    </script>
+  </body>
+</html>

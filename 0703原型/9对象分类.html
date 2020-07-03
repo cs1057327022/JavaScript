@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对象分类(js 是面向对象的角度)
+        // 函数对象
+        function foo(){}//函数对象
+        var bar = new Function()//函数对象
+        var foo1 = function(){}//函数对象
+        // 普通对象 : 原型对象  构造对象
+        // ---->日期对象 数字对象 字符串对象...
+        var obj = new Object()
+        var f = new foo()
+        // 问题：构造函数的foo的原型对象 与new 实例对象 f的原型对象关系是什么
+        // f 是 foo 创建的
+        // foo的原型对象 与 f的原型对象同一个               (原型角度)
+        // foo.prototype 存的指针 与 f.__proto__ 的指针相痛 (内存角度)
+        console.log(foo.prototype === f.__proto__);//true
+        console.log(foo.prototype);
+        console.log(f.__proto__);
+        
+        
+
+        // 区分方式
+        // 函数对象有prototype----------------------->函数对象的原型对象
+        // 普通对象没有prototype 只有 __proto__属性--->普通对象的原型对象
+
+
+        // 函数对象的原型对象:是个普通对象
+        // 特殊 Function 的原型对象 为函数对象,而这个函数对象没有 prototype
+        console.log(Function.prototype);
+        
+
+        // Function 与 function 的区别是什么(大厂面试题)
+        // 1：function 的构造函数是 Function
+        // 2：function 的原型对象为普通对象 ，Function 的原型对象为函数对象并且这个函数对象没有prototype
+
+        // var obj = {
+        //     name:'坤坤'
+        // }
+        
+        // 两个对象中 两个不同的属性；存相同的【指针】
+        // var f = {
+        //     prototype:obj
+        // }
+
+        // var b = {
+        //     __proto__:obj
+        // }
+
+    </script>
+</body>
+</html>

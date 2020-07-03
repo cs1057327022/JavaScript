@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 箭头函数没有this 指向
+        // 箭头函数中this 用的[上一层作用域]中的this
+
+        // 这就是箭头函数
+        var obj = () =>{
+            console.log(this);
+        }
+        var foo = {
+            obj:obj,
+            bar:bar
+        }
+        foo.obj()
+        function bar(){
+            var ob = {
+                foo:()=>{
+                    // 没有this 但可以使用 用的是上一层作用域中的this
+                    console.log(this);
+                }
+            }
+        }
+        foo.bar()
+        // 总结 箭头函数体方法体中没有this
+        // 如何判断箭头函数内部this
+        // [仅看]上一层[作用域]中this 是啥 就是啥
+    </script>
+</body>
+</html>
