@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=sc, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            a:12,
+            b:73,
+            c:23,
+            e:22
+        }
+
+        // 求对象中最大的value 值
+        // 1: 获取对象下每一个value值，初始化声明max 表示最大值
+        // 2: 对象下每一个value 跟 max 比较 ；如果比max 大 对max重新；依次比较
+        // 3：max 就是最大的value 值
+        var max = 0;
+        var maxKey = '';
+        for(var x in obj){
+            if(max<obj[x]){
+                max = obj[x]
+                maxKey = x
+            }
+        }
+        console.log(max,maxKey)
+
+    </script>
+</body>
+</html>

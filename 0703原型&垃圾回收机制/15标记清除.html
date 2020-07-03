@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>如何清空闭包缓存</title>
+  </head>
+  <body>
+    <script>
+      function foo() {
+        var a = 0;
+        return function () {
+          console.log(++a);
+        };
+      }
+      // 因为 res 引用的 return 返回的函数
+      // 在res执行时候；需要 引用foo 的 AO 对象下的 a 属性。
+      // 所以 foo 中的AO 对象不会被【回收】 
+      var res = foo();
+      res();
+      res();
+      // 当闭包完成任务后，
+      // 找到完成任务的条件；然后清空res 那么；foo的AO对象就不会再被引用；
+      // 所以实现了【清空闭包的缓存】
+      res = null;
+
+      // foo 中的 AO 会被回收
+      foo()(); // 因为没有任何变量和属性；引用return 返回的函数 所以 ao 回收 ao销毁
+
+
+      // 推荐网站 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management
+    </script>
+  </body>
+</html>

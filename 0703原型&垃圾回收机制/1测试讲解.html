@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   var str = "adfasdfwe";
+      //   var newStr = "";
+      //   for (var i = str.length-1; i >= 0; i--) {
+      //     newStr += str[i];
+      //   }
+      //   console.log(newStr);
+
+      // 方式一：
+      //   function reverseString(param) {
+      //     // 考虑到未来使用时候；会遇到什么错误 抛出错误
+      //     if(arguments.length>1){
+      //         throw new Error('param.length can not gt 1');
+      //     }
+      //     if(typeof(param) !== 'string'){
+      //         throw new Error('dataType of param must be string')
+      //     }
+      //     var res = "";
+      //     for (var i = param.length - 1; i >= 0; i--) {
+      //       res += param[i];
+      //     }
+      //     return res;
+      //   }
+
+      //   var newStr = reverseString(str);
+      //   console.log(newStr);
+
+      // 搜一下别人还有什么好的方法
+
+      //   var str = 'sfasewqfrer';
+      //   var res=str.split('').reverse().join('')
+      //   console.log(res)
+      //   function reverseString(str) {
+      //     if (arguments.length > 1) {
+      //       throw new Error("param.length can not gt 1");
+      //     }
+      //     if (typeof param !== "string") {
+      //       throw new Error("dataType of param must be string");
+      //     }
+      //     return str.split("").reverse().join("");
+      //   }
+
+      // 第四题
+
+      // 求一个串中字符出现最多的一个字符 并统计次数
+      // 1: 用对象统计；将不重复字符变为 对象中KEY value统计出现次数
+      // ----> 第一步  将字符串变为 对象中不重复key 并初始值为0  去重处理
+      // ----> 第二步  统计是字符串中每一个字符重复出现了多少次
+      // ----> 第三步  比较对象中value 的最大值；以及对应的key
+      // var str = "dkdfqwjer23edfsdafaser23";
+      // var obj = {};
+      // var flag = false; // true 存在  false 不存在
+      // // 第一步
+      // for (var i = 0; i < str.length; i++) {
+      //   // str[i];  统计 str[i] 出现的次数0
+      //   // 验证 obj 是否存在 str[i]
+      //   for (var x in obj) {
+      //     if (str[i] === x) {
+      //       // obj 中 存在这个key
+      //       flag = true;
+      //       break;
+      //     } else {
+      //       flag = false;
+      //     }
+      //   }
+      //   // 去重 新增；先验证 再 天啊及
+      //   // 当不存在才新增，
+      //   if (!flag) {
+      //     obj[str[i]] = 0;
+      //   }
+      // }
+
+      // //第二步： 统计 key 再 字符串中出现的次数
+      // for (var y in obj) {
+      //   for (var j = 0; j < str.length; j++) {
+      //     if (y === str[j]) {
+      //       ++obj[y];
+      //     }
+      //   }
+      // }
+      // console.log(obj)
+      // // 第三步
+      // var max = 0;
+      // var maxKey = '';
+      // for(var z in obj){
+      //     if(max<obj[z]){
+      //         max = obj[z];
+      //         maxKey = z
+      //     }
+      // }
+      // console.log(max,maxKey)
+
+      // 八
+      // var length = 10;
+      // function fn() {
+      //   console.log(this.length,'===============');  // 10
+      //   // method中 argument.length = 2
+      // }
+
+      // var obj = {
+      //   length: 5,
+      //   method: function (fn) {
+      //     fn();
+      //    //  fn函数时候 类数组 arguments 触发的 ；所以 fn 中this 指向method中的 arguements
+      //     console.log(arguments[0]())
+      //     // arguments[0]();
+      //   },
+      // };
+
+      // obj.method(fn, 1)
+      // var arr = [function bar(){
+      //   console.log(this) // arr 触发函数 所有 this 指向 arr
+      // },'11',22]
+
+      // arr[0]()
+
+      // 腾讯面试的笔试题  5星
+      // 闭包 作用 垃圾回收机制 内存
+      function fun(n, o) {
+        console.log(o); // undefined  0 0 0
+        return {
+          fun: function (m) {
+            console.log(m) // 1 2 3
+            console.log(n) // 0 0 0
+            return fun(m,1); 
+          },
+        };
+      }
+      // 垃圾回收机制，将没有用的变量销毁了
+      var a = fun(0);
+      a.fun(1);  // 有返回值 跟a一样，但是没有任何变量【引用】
+      a.fun(2);
+      a.fun(3);
+      // var b = fun(0).fun(1).fun(2).fun(3);
+      // var c = fun(0).fun(1);
+      // c.fun(2);
+      // c.fun(3);
+    </script>
+  </body>
+</html>
