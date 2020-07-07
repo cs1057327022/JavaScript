@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // count 会不会被垃圾回收机制回收呢
+        // 零引用被回收
+        (function(window){
+            var count = 0
+            return function (){
+                console.log(++count);
+                
+            }
+        })(window)
+
+        // 立即执行函数：闭包首选，可以解决内存泄漏问题，因为零引用 所以被垃圾回收机制回收
+        // 如果有变量引用了 闭包 return返回的函数：那么再最后 将变量赋值位null，null作用零引用 被回收
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: burlywood;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+      }
+      input {
+        outline: none;
+        border: 1px solid #ccc;
+        height: 35px;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 300px;
+        color: #ccc;
+      }
+      #add {
+        width: 55px;
+        height: 35px;
+        appearance: none;
+        border: none;
+        outline: none;
+      }
+      .head {
+        width: 500px;
+        margin: 10px auto;
+        display: flex;
+        justify-content: center;
+      }
+      main {
+        width: 500px;
+        background-color: #ffffff;
+        padding: 10px;
+        margin: 0 auto;
+      }
+      .content {
+        padding: 20px 45px 20px 45px;
+      }
+      .content li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0px;
+        height: 35px;
+      }
+      .content .deletEl {
+        width: 45px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        background-color: #ccc;
+        color: #796c6c;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="head">
+        <input id="ipt" type="text" placeholder="新政内容" />
+        <div><button id="add">新增</button></div>
+      </div>
+      <div class="content">
+        <ul>
+          <li> 
+            <input type="checkbox">
+            <span>我是内容</span>
+            <div class="deletEl">删除</div>
+          </li>
+          <li>
+            <span>我是内容</span>
+            <div class="deletEl">删除</div>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <script>
+      // 初始化获取一次
+      var ipt = document.querySelector("#ipt");
+      var addBtn = document.querySelector("#add");
+      var ulNode = document.querySelector(".content>ul");
+      deleteItem();  // 初始化执行；初始化可以是是实现删除列表
+      addBtn.onclick = function () {
+        var val = ipt.value;
+        var liNode = document.createElement("li");
+        var span = document.createElement("span");
+        var div = document.createElement("div");
+        div.innerHTML = "删除";
+        div.className = "deletEl";
+        span.innerHTML = val;
+        liNode.appendChild(span);
+        liNode.appendChild(div);
+
+        // 把li 添加到ul上
+        ulNode.appendChild(liNode);
+        ipt.value = "";
+
+        // 新增列表后；需要重获取 列表 这样才能删除新增内容
+        deleteItem();
+      };
+
+      // 删除列表象 方法实现
+      function deleteItem() {
+        var deletNode = document.querySelectorAll("li>.deletEl");
+        // 删除
+        for (var i = 0; i < deletNode.length; i++) {
+          (function (i) {
+            var x = i;
+            deletNode[x].onclick = function () {
+              var prent = deletNode[x].parentNode;
+              prent.remove();
+            };
+          })(i);
+        }
+      }
+    </script>
+  </body>
+</html>

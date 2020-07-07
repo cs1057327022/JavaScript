@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <span>我是一个内容</span>
+            <span>阿松大</span>
+        </div>
+        <div class="box1">
+            <span>我是一个念</span>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('.box')
+        var box1 = document.querySelector('.box1')
+        box.innerHTML = '你好' //重新赋值
+        var text = document.createTextNode('我是一个新的文本节点')
+        box1.appendChild(text) //插入 累加方式
+    </script>
+</body>
+</html>

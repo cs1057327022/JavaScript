@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="prent">
+        <div class="box2"></div>
+        <div class="box">
+            <span>我是一个内容</span>
+            <p>这是一段话</p>
+            <div>这是一个容器</div>
+        </div>
+        <div class="box1"></div>
+    </div>
+    <script>
+        // root根节点
+
+        var box = document.getElementsByClassName('box')[0]
+        console.log(box.nodeName);//获取节点名字
+        console.dir(box)
+        var boxPrent = box.parentNode
+        console.log(boxPrent);//返回父节点
+        var boxChildern = box.children//获取box的子节点集合
+        console.log(boxChildern);
+        var boxPre = box.previousElementSibling //获取box的深一个兄弟元素
+        console.log(boxPre);
+        var boxNext = box.nextElementSibling
+        console.log(boxNext);
+        
+        
+
+        // 综上：
+        // 第一步:通过js选择器 获取当前的html 标签
+        // 第二部:通过节点关系 获取相关联的元素(父元素 子元素 兄弟元素)
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <p>我是需要被删除</p>
+    </div>
+    <button>点击参数p</button>
+    <h1>点击我自己删除我自己</h1>
+    <script>
+        var btn = document.querySelector('button')
+        var wrap = document.querySelector('.wrap')
+        var p = document.getElementsByTagName('p')[0]
+        btn.onclick = function(){
+            // 语法
+            // prent.removeChild(child) 作用：删除父元素下的某个子元素
+            // prent--->父元素
+            // child--->需要被删除的子元素
+            wrap.removeChild(p)
+        }
+        
+        var h1 = document.getElementsByTagName('h1')[0]
+        h1.onclick =function(){
+            // 语法
+            // el.remove() 作用：remove 删除某个元素
+            // ----> el 为删除的元素
+            h1.remove()
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>都是需要被删除的内容</h1>
+    <h1>都是需要被删除的内容</h1>
+    <h1>都是需要被删除的内容</h1>
+    <h1>都是需要被删除的内容</h1>
+    <h1>都是需要被删除的内容</h1>
+    <script>
+        // var h1s = document.querySelectorAll('h1')
+        // for(var i =0;i<h1s.length;i++){
+        //     h1s[i].onclick = function(){
+        //         this.remove()
+        //     }
+        // }
+
+        // 方式二
+        var h1s = document.querySelectorAll('h1')
+        for(var i =0;i<h1s.length;i++){
+            (function(){
+                var x = i
+                h1s[i].onclick = function(){
+                    h1s[x].remove()
+                } 
+            })()
+                
+        }
+       
+
+
+        // var h1s1 = h1s[0]
+        // var h1s2 = h1s[1]
+        // var h1s3 = h1s[2]
+        // var h1s4 = h1s[3]
+        // var h1s5 = h1s[4]
+        // console.log(h1s);
+        // h1s1.onclick =function(){
+        //     h1s1.remove()
+        // }
+        // h1s2.onclick =function(){
+        //     h1s2.remove()
+        // }
+        // h1s3.onclick =function(){
+        //     h1s3.remove()
+        // }
+        // h1s4.onclick =function(){
+        //     h1s4.remove()
+        // }
+        // h1s5.onclick =function(){
+        //     h1s5.remove()
+        // }
+    </script>
+</body>
+</html>

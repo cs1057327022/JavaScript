@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <p class="center">我是cs</p>
+    </div>
+    <script>
+        var wrap =document.querySelector('.wrap')
+        var pNode = document.createElement('p')
+        var center = document.querySelector('.center')
+        pNode.innerHTML = 'bbb'
+        // 语法
+        // 父元素.insertBefore(new,child) 表示在某个子元素之前插入元素
+        // --->new 新元素 需要被插入的元素
+        // --->child参照的子元素
+        wrap.insertBefore(pNode,center)
+    </script>
+</body>
+</html>

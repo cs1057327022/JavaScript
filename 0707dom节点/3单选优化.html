@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>yf最美，周超最帅</h1>
+    <h1>yf最美，周超最帅</h1>
+    <h1>yf最美，周超最帅</h1>
+    <h1>yf最美，周超最帅</h1>
+    <h1>yf最美，周超最帅</h1>
+    <script>
+        // var h1s = document.getElementsByTagName('h1')
+        // for(var i = 0;i<h1s.length;i++){
+        //     h1s[i].onclick = function(){
+        //         // 坑：btn[i]不存在因为异步，这个程序比全局for 还慢 所以全局的 i=5
+        //         // console.log(i,this);
+        //         // 需求：找到被点击的元素---->this
+        //         this.style.color = 'blue'
+        //     }
+        // }
+
+
+        // 第二个功能
+        // 闭包 + this
+        // var h1s = document.getElementsByTagName('h1')
+        // for(var i = 0;i<h1s.length;i++){
+        //     (function(){
+        //         var flag = true
+        //         h1s[i].onclick = function(){
+        //             if(!flag){
+        //                 this.style.color = ''
+        //                 flag = true
+        //             }else{
+        //                 this.style.color = 'blue'
+        //                 flag = false
+        //             }
+        //         }
+        //     })()
+        // }
+
+        // 闭包思维
+        // var h1s = document.getElementsByTagName('h1')
+        // for(var i = 0;i<h1s.length;i++){
+        //     (function(){
+        //         var flag = true
+        //         var x = i //解决 变量污染 全局i=5的问题
+        //         h1s[i].onclick = function(){
+        //             if(!flag){
+        //                 h1s[x].style.color = ''
+        //                 flag = true
+        //             }else{
+        //                 h1s[x].style.color = 'blue'
+        //                 flag = false
+        //             }
+        //         }
+        //     })()
+        // }
+
+
+        // 给对象添加私有属性方式 没有闭包
+        // var h1s = document.getElementsByTagName('h1')
+        // for(var i = 0;i<h1s.length;i++){
+        //         h1s[i].flag = true;
+        //         // 给5个h1 dom对象：分别提娜佳私有属性i 并赋不同的初始值
+        //         h1s[i].i = i;
+        //         h1s[i].onclick = function(){
+        //             // 使用 对象下私有属性
+        //             if(!this.flag){
+        //                 h1s[this.i].style.color = ''
+        //                 this.flag = true
+        //             }else{
+        //                 h1s[this.i].style.color = 'blue'
+        //                 this.flag = false
+        //             }
+        //         }
+        // }
+    </script>
+</body>
+</html>

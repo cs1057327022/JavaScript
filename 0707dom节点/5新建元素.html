@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap"></div>
+    <button class="addElement">点击添加内容</button>
+    <script>
+        // 如何通过js方式新建标签
+        var node = document.createElement('p')
+        node.innerHTML = 'cs'
+        console.log(node);
+        var wrap = document.querySelector('.wrap')
+        // 父元素.appendChild(子元素);
+        // --->子元素 可以是选择器获取的;也可以是createElement 创建的
+        // appendChild():给某个选手添加子元素:参数:元素对象
+        wrap.appendChild(node)
+        console.log(wrap);
+    </script>
+</body>
+</html>

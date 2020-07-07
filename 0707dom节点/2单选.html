@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>yf最美，周超最帅</h1>
+    <h1>yf最美，周超最帅</h1>
+    <h1>yf最美，周超最帅</h1>
+    <h1>yf最美，周超最帅</h1>
+    <h1>yf最美，周超最帅</h1>
+    <script>
+        // 第一步 选择需要被操作的标签
+        var h1s = document.getElementsByTagName('h1')
+        var h1s1 = h1s[0]
+        var h1s2 = h1s[1]
+        var h1s3 = h1s[2]
+        var h1s4 = h1s[3]
+        var h1s5 = h1s[4];
+
+        // 第二步骤：处理用户行为
+
+        // 处理当用户点击第一个H1的时候：h1的反馈
+        (function(){
+            var flag = true
+            h1s1.onclick = function(){
+                flag ? h1s1.style.color = 'blue' : h1s1.style.color = 'black'
+            flag = !flag
+            // 具体处理用户的某个行为
+            // h1s1.style.color = 'blue'
+            }
+        })();
+        (function(){
+            var flag = true
+            h1s2.onclick = function(){
+                if(!flag){
+                    h1s2.style.color = 'black'
+                    flag = true
+                }else{
+                    h1s2.style.color = 'red'
+                    flag = false
+                }
+            // 具体处理用户的某个行为
+            // h1s2.style.color = 'blue'
+            }
+        })()
+        var count = 0
+        h1s3.onclick = function(){
+            count++
+            if(count%2 == 1){
+                h1s3.style.color = 'yellow'
+            }else{
+                h1s3.style.color = ''
+
+            }
+            // 具体处理用户的某个行为
+            // h1s3.style.color = 'blue'
+        }
+        h1s4.onclick = function(){
+            // 具体处理用户的某个行为
+            h1s4.style.color = 'blue'
+        }
+        h1s5.onclick = function(){
+            // 具体处理用户的某个行为
+            h1s5.style.color = 'blue'
+        }
+    </script>
+</body>
+</html>

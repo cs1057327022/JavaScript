@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .hidden{
+            opacity: 0;
+        }
+        .active{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button>显示</button>
+    <script>
+        var box = document.getElementsByClassName('box')[0]
+        console.log(box);
+        var btn = document.getElementsByTagName('button')[0]
+        // var count = 0
+        // btn.onclick = function(){
+        // 统计用户点击的次数
+        //     if(++count %2 == 1){
+        //         box.className='box hidden'
+        //     }else{
+        //         box.className='box'
+        //     }  
+        // }
+
+
+        // var flag = true  //true 为显示 false为隐藏
+        // btn.onclick = function(){
+        //     if(!flag){
+        //         box.className='box'
+        //         flag = true
+        //     }else{
+        //         box.className='box hidden'
+        //         flag = false
+        //     }
+        // }
+
+
+        var flag = true//true 为显示 false为隐藏
+        btn.onclick = function(){
+            flag = !flag
+            // 三目运算符  也叫 三元运算符
+            flag ? (box.className='box') : (box.className='box hidden')
+        }
+    </script>
+</body>
+</html>

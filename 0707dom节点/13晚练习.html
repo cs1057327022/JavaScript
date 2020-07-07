@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            background-color: sandybrown;
+        }
+        input{
+            outline: none;
+            border: 1px solid #cccccc;
+            height: 35px;
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 300px;
+            color: #cccccc;
+        }
+        #add{
+            width: 55px;
+            height: 35px;
+            outline: none;
+            border: none;
+
+        }
+        .head{
+            width: 500px;
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+        }
+        main{
+            width: 500px;
+            background-color: #ffffff;
+            padding: 10px ;
+            margin: 0 auto;
+        }
+        .content{
+            padding: 20px 15px 20px 45px;
+        }
+        .content li{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            height: 35px;
+        }
+        .delete{
+            width: 45px;
+            height: 25px;
+            outline: none;
+            border: none;
+            background-color: #cccccc;
+            text-align: center;
+            line-height: 25px;
+            color: #f1f1f1;
+        }
+        .ck{
+            width: 15px;
+        }
+        .line{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="head">
+            <input id="ipt" type="text" placeholder="新增内容">
+            <div>
+                <button id="add">新增</button>
+            </div>
+        </div>
+        <div class="content">
+            <ul>
+                <li>
+                    <input class="ck" type="checkbox">
+                    <span>我是内容</span>
+                    <button class="delete">删除</button>
+                </li>
+                <li>
+                    <input class="ck"  type="checkbox">
+                    <span>我是内容</span>
+                    <button class="delete">删除</button>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script>
+        var add = document.querySelector('#add')
+        var ipt = document.querySelector('#ipt')
+        var cks = document.querySelectorAll('.ck')
+        var ulNode = document.querySelector('.content>ul')
+        var deleteNodes = document.querySelectorAll('.delete')
+        deleteItem()
+        lineThrough()
+
+        add.onclick = function(){
+            var ck = cks[0].type
+            var val = ipt.value
+
+            var input = document.createElement('input')
+            var span = document.createElement('span')
+            var button = document.createElement('button')
+            var liNode = document.createElement('li')
+            input.type = ck
+            input.className = 'ck'
+            span.innerHTML = val
+            button.innerHTML = '删除'
+            button.className = 'delete'
+            liNode.appendChild(input)
+            liNode.appendChild(span)
+            liNode.appendChild(button)
+
+            ulNode.appendChild(liNode)
+
+            ipt.value = ''
+
+            deleteItem()
+            lineThrough()
+        }
+
+
+        function deleteItem(){
+            deleteNodes = document.querySelectorAll('.delete')
+            for(var i = 0;i<deleteNodes.length;i++){
+                (function(){
+                    var x = i
+                    deleteNodes[x].onclick = function(){
+                        var parent = deleteNodes[x].parentNode
+                        parent.remove()
+                    }
+                    
+                })()
+            }
+        }
+
+        function lineThrough(){
+            cks = document.querySelectorAll('.ck')
+            for(var j = 0;j<cks.length;j++){
+                (function(){
+                    var flag = true
+                    var n = j
+                    cks[n].onclick = function(){
+                        var sp = cks[n].nextElementSibling
+                        flag ? sp.className = 'line' : sp.className = ''
+                        flag = !flag
+                    }
+                })()
+            }
+        }
+    </script>
+</body>
+</html>

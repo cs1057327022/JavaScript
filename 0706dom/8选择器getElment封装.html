@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrap"></div>
+    <div id="box"></div>
+    <script>
+      getELement('span')
+      
+      getELement('#box')
+      console.log(getELement('.wrap'))
+      console.log(getELement('#box'))
+      console.log(getELement('div'))
+
+      // getElement() 作用：选择器的封装
+      // 参数：字符串类型
+
+      function getELement(el){
+          if(arguments.length>1){
+              throw new Error('params.length cannot gt 1');
+          }
+          if(typeof el !== 'string'){
+              throw new Error('arguemet of type can string')
+          }
+          if(arguments.length===0){
+              return null
+          }
+          if(el.charAt(0)==='.'){  // class 选择器
+              el = el.substr(1)
+              return document.getElementsByClassName(el);
+          }else if(el.charAt(0)==='#'){  // id 选择器
+              el = el.substr(1)
+              return document.getElementById(el);
+          }else{  // 元素选择器 
+              return document.getElementsByTagName(el);
+          }
+
+      }
+    </script>
+  </body>
+</html>

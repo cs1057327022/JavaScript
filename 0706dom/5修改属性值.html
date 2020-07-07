@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap" style="width: 100px;" id="aa">
+
+    </div>
+    <script>
+        var  wrap = document.getElementsByClassName('wrap')[0]
+        // 获取html属性 html 具有这个属性：或者自定义属性
+        console.log(wrap.style.width);//获取属性
+        // 修改html属性的值
+        // 通过js设置css样式  设置行内样式
+        wrap.style.width = '200px'
+        wrap.style.height= '100px'
+        wrap.style.backgroundColor = 'red'
+        
+        console.log(wrap.id);
+        
+    </script>
+</body>
+</html>

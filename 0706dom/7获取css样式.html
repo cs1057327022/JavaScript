@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" style="border-radius: 50%;"></div>
+    <script>
+        var wrap = document.getElementsByClassName('wrap')[0]
+        // var res = wrap.style.borderRadius
+        // console.log(res);
+        
+        // 可以获取所有样式
+        // getComputedStyle(元素对象，null)获取元素样式
+        // 参一：元素对象
+        // 参二：是否获取为元素 null 表示不获取
+        // 注意：仅支持 谷歌和火狐 不支持低版本IE
+        // var res = getComputedStyle(wrap,null)
+        // console.log(res.width);
+        // console.log(res.borderRadius);
+        
+        // 仅支持IE
+        // var resIe = wrap.currentStyle
+        // console.log(resIe.width);
+        
+
+        // 获取样式兼容性问题
+        function getStyle(el){
+            if(el.currentStyle){
+                return el.currentStyle
+            }else{
+                return getComputedStyle(wrap,null)
+            }
+        }
+        console.log(getStyle(wrap).width);
+        
+    </script>
+</body>
+</html>
