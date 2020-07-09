@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .list{
+            display: flex;justify-content: left;
+        }
+        button{
+            height: 30px;
+            outline: none;
+            border: none;
+            margin-left: 5px;
+            padding:0 20px;
+        }
+        .btn{
+            margin-top: 10px;
+            color: white;
+            background-color: black;
+        }
+        p{
+            font-size: 30px;
+            font-weight: 700;
+            margin-left: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="list">
+        <button class="btn1" data-color ='yellow'>黄色</button>
+        <button class="btn1" data-color ='green'>绿色</button>
+        <button class="btn1" data-color ='blue'>蓝色</button>
+        <button class="btn1" data-color ='pink'>粉色</button>
+        <button class="btn1" data-color ='purple'>紫色</button>
+    </div>
+    <button class="btn">改变字体颜色</button>
+    <p>字体</p>
+</body>
+</html>
+<script>
+    var btn = document.querySelector('.btn');
+    var p = document.querySelector('p')
+    var child = document.querySelectorAll('.btn1')
+    
+    for(var i = 0;i<child.length;i++){
+        (function(){
+            var x = i
+            child[x].onclick=function(){
+                btn.tid = child[x].getAttribute('data-color')
+                for(var j = 0;j<child.length;j++){
+                    if(this==child[j]){
+                        this.style.background = btn.tid
+                    }else{
+                        child[j].style.background = ''
+                    }
+                }
+                btn.onclick = function(){
+                    p.style.color=btn.tid
+                }
+            }
+        })()
+    }
+    
+</script>

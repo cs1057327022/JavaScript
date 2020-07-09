@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 500px;
+            height: 500px;
+            background-color: black;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        .child{
+            width: 100px;
+            height: 100px;
+            background-color: seagreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div class="child"></div>
+        </div>
+    </div>
+    <script>
+        var child = document.querySelector('.child')
+        var box =document.querySelector('.box')
+        var wrap = document.querySelector('.wrap')
+
+        // 事件冒泡
+        // 在[目标元素el]上触发事件,如果el的[祖籍元素]绑定了相同的事件,那么也会被触发 直到找到root 根元素为止
+        // 函数执行顺序:目标元素--->父元素--->祖籍元素
+
+        // addEventListener()监听某个元素的事件
+        // 参一:事件类型
+        // 参二:事件处理函数
+        // 参三:事件机制 冒泡或者捕获 默认值 false冒泡 true捕获
+        // child.addEventListener('click',function(){
+        //     console.log('child');
+            
+        // },false)
+        // box.addEventListener('click',function(){
+        //     console.log('box');
+            
+        // },false)
+        // wrap.addEventListener('click',function(){
+        //     console.log('wrap');
+            
+        // },false)
+
+        
+        // 捕获行为
+        child.addEventListener('click',function(){
+            console.log('child');
+            
+        },true)
+        box.addEventListener('click',function(){
+            console.log('box');
+            
+        },true)
+        wrap.addEventListener('click',function(){
+            console.log('wrap');
+            
+        },true)
+
+        // 事件:无论是否处理(绑定事件处理函数),都是存在的
+        // 用户的行为:都会具体到某一个元素上---->目标元素
+        // 捕获:多目标同一个行为:祖籍元素是否处理了.如果处理:从上晚霞顺序依次触发祖籍元素种的事件处理函数 最后 触发目标元素事件处理函数
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap" data-cs='cs'>我是内容</div>
+    <script>
+        var wrap = document.getElementsByClassName('wrap')[0]
+        var div = document.querySelector('.wrap')
+        console.log(wrap.nodeType); //Element_node
+        console.log(div.nodeType);
+        var txt = document.createTextNode('我是文本')
+        console.log(txt.nodeType); // 3  文本节点
+
+        // getAttribute()返回某个元素的属性的值
+        // data-cs自定义属性 data-xxx
+        console.log(div.getAttribute('data-cs'));
+        
+
+        // nodeType  作用返回 dom数上节点类型
+        // 1 元素节点
+        // 2 属性节点
+        // 3 文本节点
+        
+    </script>
+</body>
+</html>

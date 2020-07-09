@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn">点击我呀</button>
+    <script>
+        var btn = document.querySelector('.btn')
+        console.log(btn);
+        // 事件对象作用:记录触发事件的事项,位置 哪一个按键等...
+        btn.onclick =function(event){
+            // event事件对象,触发事件的时候传入的
+            // 事件处理函数是异步程序:按需执行的
+            console.log(event);
+            console.log(event.type);//事件类型
+
+            // 获取触发事件的元素
+            var target = event.target
+            console.log(target);
+            
+        }
+        // 1:什么是事件对象
+        // 2:事件对象的作用是什么
+        // 3:事件对象什么时候产生的
+        // ---->谷歌浏览器 触发事件时
+        // ---->IE 浏览器 是window.event 初始赋值null
+        document.onkeyup = function(e){
+            console.log(e);
+            // 获取 按下哪一个按键 每一个按键都会有一个编码
+            var code = e.keyCode
+            console.log(code);
+            if(code === 13){//显示按下回车键
+                alert('确认完毕')
+            }else if(code===32){//按下空格
+                alert('空格键')
+            }else if(code===16){
+                alert('shift键')
+            }
+        }
+    </script>
+</body>
+</html>

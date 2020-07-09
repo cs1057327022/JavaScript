@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <p>我是一个内容</p>
+        <p>我是一个内容</p>
+        <p>我是一个内容</p>
+        <p>我是一个内容</p>
+        <p>我是一个内容</p>
+    </div>
+    
+    <script>
+        // var ps = document.querySelectorAll('p')
+        // for(var i = 0;i<ps.length;i++){
+        //     ps[i].onclick = function(e){
+        //         console.log(e.target);
+        //         e.target.style.color = 'red'
+        //     }
+        // }
+
+        // 这个给几个元素绑定了点击事件
+        var wrap = document.querySelector('.wrap')
+        wrap.onclick = function(e){
+            // console.log(this);
+            console.log(e.target);
+            // 明明是给wrap绑定点击事件:为什么可以 更改子元素样式呢
+            // 因为触发事件的目标元素是p 利用事件机制实现的事件委托
+            e.target.style.color = 'red'
+        }
+
+        // 事件委托:将事件处理委托给祖籍元素
+        // 世界委托:是怎么实现的呢
+        // 通过事件机制,实现事件委托
+    </script>
+</body>
+</html>

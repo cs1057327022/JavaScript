@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/font_1ducdj32j8w/iconfont.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .contor{
+            display: flex;
+        }
+        .iconfont{
+            font-size: 40px;
+        }
+        .color{
+            color: red;
+        }
+        .evaluate{
+            font-size: 30px;
+            font-weight: 700;
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="contor">
+        <p class="iconfont icon-star"></p>
+        <p class="iconfont icon-star"></p>
+        <p class="iconfont icon-star"></p>
+        <p class="iconfont icon-star"></p>
+        <p class="iconfont icon-star"></p>
+    </div>
+    <div class="content">
+        <div class="evaluate">很不满意</div>
+        <div class="evaluate">不满意</div>
+        <div class="evaluate">一般</div>
+        <div class="evaluate">满意</div>
+        <div class="evaluate">很满意</div>
+    </div>
+
+</body>
+</html>
+<script>
+    var icons = document.querySelectorAll('.iconfont');
+    var eva = document.querySelectorAll('.evaluate');
+
+    for(var i = 0;i<icons.length;i++){
+        (function(i){
+            icons[i].addEventListener('click',function(){
+                for(var j = 0;j<icons.length;j++){
+                    eva[j].className = 'evaluate'
+                    if(i<j){
+                        icons[j].className='iconfont icon-star'
+                    }else{
+                        icons[j].className='color iconfont icon-star'
+                    }
+                }
+                eva[i].className = 'evaluate show'
+            })
+        })(i)
+    }
+</script>

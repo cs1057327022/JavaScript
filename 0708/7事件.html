@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="this.innerHTML = '不谢谢'">你有事啊</h1>
+    <h2 onclick="yao(this)">你有病啊</h2>
+    <h2 class="changeText">你好吗</h2>
+    <h2 class="txt">我最后再见你一次,就分手</h2>
+    <script>
+        // 事件：作用：实现用户与浏览器的交互行为
+        // 事件分类：键盘 鼠标 滚轮 浏览器窗口 表单...
+        // 交互:一问一答 一行为一响应 用户做出行为 浏览反应对应的效果
+        // 核心知识点(面试):事件对象 事件机制 事件流 事件句柄 监听事件...
+
+        // window.onload 当页面刚刚启动时候  做初始化操作
+        // window.onload = function(){
+        //     // 事件处理函数
+        //     alert('你好用户,在这里完成页面初始化渲染')
+        // }
+
+        // function yao(el){
+        //     el.innerHTML = '你有药呀'
+        // }
+
+        var txt = document.querySelector('.changeText')
+        // onclick点击事件
+        txt.onclick=function(){
+            // 事件处理函数:浏览器对行为做出的响应
+            this.innerHTML = '我很好,江湖再见'
+        }
+
+        var text = document.querySelector('.txt')
+        // IE 不支持
+        text.addEventListener('click',function(){
+            this.innerHTML = '分就分,谁怕谁'
+        })
+    </script>
+</body>
+</html>

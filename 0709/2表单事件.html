@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="">
+            <input type="text">
+        </label>
+        <label for="">
+            <input type="text">
+            <button>提交</button>
+        </label>
+    </form>
+    <div>
+        <input type="text" id="ipt">
+        <h1></h1>
+    </div>
+    <div>
+        <input type="checkbox" id="check">选择
+    </div>
+    <script>
+        // form input
+        // 提交 change
+
+        // var form = document.querySelector('form')
+        // form.onsubmit = function(e){
+        //     // 阻止浏览器默认行为
+        //     e.preventDefault()
+        //     console.log(e,'提交了');
+        //     // 获取扁担输入内容进行提交处理
+        //     console.log(form[0].value);
+            
+            
+        // }
+        // var btn = document.querySelector('button')
+        // btn.onclick = function(e){
+        //     e.preventDefault()
+        //     console.log('11111');
+
+        // }
+
+
+        // input事件
+        // var ipt = document.querySelector('#ipt')
+        // var h1 = document.querySelector('h1')
+        // input事件 可以实际监听input输入框的动态
+        // ipt.oninput = function(){
+        //     console.log(ipt.value);
+        //     h1.innerHTML = ipt.value
+        // }
+        
+
+        // 给输入框绑定change 事件
+        // 内容变化，并且失去焦点时候触发
+        // var ipt = document.querySelector('#ipt')
+        // ipt.onchange = function(e){
+        //     console.log(e.target.value);
+            
+        // }
+        
+
+        // change事件：当input发生改变的时候
+        // var check = document.querySelector('#check')
+        // check.onchange = function(e){
+        //     console.log('check方式改变了');
+        //     console.log(e.target.checked);
+        // }
+
+
+        // 焦点事件
+        var ipt = document.querySelector('#ipt')
+        ipt.onfocus = function(){
+            console.log('获取焦点了');
+            
+        }
+        ipt.onblur = function(){
+            console.log('失去焦点了');
+            
+        }
+    </script>
+</body>
+</html>

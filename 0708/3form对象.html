@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="checkbox" checked value="1">
+        <span>这是我选择的内容</span>
+    </div>
+
+    <script>
+        // form 表单，在任何一个都是特殊的
+        // h5 默认属性
+        // css 清空样式
+        // js 默认行为 多种数据格式
+        // 表单事件:提交  获取焦点  失去焦点  改变  实时监听输入...
+
+        // 在js中用什么方式 知道用户是否勾选
+        var check = document.querySelector('input[type=checkbox')
+        // check.checked 判断 checkbox 是否被勾选 true 选择false 没选
+        console.log(check.checked);
+        
+
+        // 如何知道 勾选后:选择的内容事什么呢
+        console.log(check.value); //1 代表:'这是我选的内容'
+        
+    </script>
+</body>
+</html>

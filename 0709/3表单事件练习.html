@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>请填写下面的调查报告</h1>
+    <form action="">
+        <div>
+            <label for="">姓名</label>
+            <input type="text" id="xm">
+        </div>
+        <div>
+            <label for="">年龄</label>
+            <select name="" id="select">
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="12">12</option>
+                <option value="26">26</option>
+                <option value="15">15</option>
+            </select>
+        </div>
+        <div>
+            <label for="">爱好</label>
+            <input type="text" id="love">
+        </div>
+        <div>
+            <input type="radio" name="sex" value="男">男
+            <input type="radio" name="sex" value="女">女
+        </div>
+        <div>
+            <button class="submit">提交</button>
+        </div>
+    </form>
+    <script>
+        var submit = document.querySelector('.submit')
+        var select = document.querySelector('#select')
+        var radio = document.querySelectorAll('input[type=radio]')
+
+        submit.onclick = function(e){
+            e.preventDefault()
+            var cname = xm.value
+            var selectVal = ''
+            for(var i = 0;i<select.length;i++){
+                if(select[i].selected){
+                    selectVal = select[i].value
+                    break
+                }
+            }
+            var loveVal = love.value
+            var sex =''
+            for(var j=0;j<radio.length;i++){
+                if(radio[j].checked){
+                    sex = radio[j].value
+                    break
+                }
+            }
+            console.log(cname,selectVal,loveVal,sex);
+            
+        }
+    </script>
+</body>
+</html>
