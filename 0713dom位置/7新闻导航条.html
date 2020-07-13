@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            height: 300px;
+            background-color: coral;
+        }
+        ul>li{
+            list-style: none;
+            float: left;
+            height: 50px;
+        }
+        li>a{
+            text-decoration: none;
+            padding: 15px;
+            color: #f1f1f1;
+            display: inline-block;
+        }
+        nav{
+            width: 100%;
+            background-color: #000000;
+            height: 50px;
+        }
+        .content p{
+            height: 100px;
+        }
+        .fixed{
+            position: fixed;
+            top: 0;
+            animation: ani 0.5s linear;
+        }
+        @keyframes ani {
+            from{
+                height: 0px;
+            }
+            to{
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">我是内容01</a>
+                <a href="#">我是内容02</a>
+                <a href="#">我是内容03</a>
+                <a href="#">我是内容04</a>
+                <a href="#">我是内容05</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="content">
+        <p>我是文本内容</p>
+        <p>我是文本内容</p>
+        <p>我是文本内容</p>
+        <p>我是文本内容</p>
+        <p>我是文本内容</p>
+        <p>我是文本内容</p>
+        <p>我是文本内容</p>
+        <p>我是文本内容</p>
+        <p>我是文本内容</p>
+        <p>我是文本内容</p>
+    </div>
+    <script>
+        var nav = document.querySelector('nav');
+        window.onscroll = function(){
+            var h = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(h);
+            if(h > 350){
+                nav.className = 'fixed'
+            }else{
+                nav.className = ''
+            }
+        }
+    </script>
+</body>
+</html>

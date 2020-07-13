@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <p>我是内容</p>
+        <p>我是内容</p>
+        <p>我是内容</p>
+        <p>我是内容</p>
+        <p>我是内容</p>
+        <p>我是内容</p>
+        <p>我是内容</p>
+        <p>我是内容</p>
+        <p>我是内容</p>
+        <p>我是内容</p>
+    </div>
+    <script>
+        // 触底:
+        // 页面高度 = 视图窗口高度 + 滚动条滚动高度
+        var wrap = document.querySelector('.wrap')
+        window.onscroll = function(){
+
+            var H = innerHeight;//获取视图窗口高度
+            // 滚动条滚动的高度
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var pageH = document.body.offsetHeight;
+
+
+            var data = ['前端','Java','大数据','pyhon','数据分析','产品经理']
+            // 触底加载跟多操作
+            if(H + scrollTop >= pageH){
+                // alert('到底了')
+                // 到底后,往页面中插入 data 内容
+                console.log('到底了');
+
+                // bug：慢 在0.5s内可以重复多次触底 ---> 解决方式 防抖
+                // setTimeout(function(){
+                //     for(var i = 0;i<data.length;i++){
+                //         var p = document.createElement('p');
+                //         p.innerHTML = data[i];
+                //         wrap.appendChild(p)
+                //     }
+                // },500)
+
+                setTimeout(function(){
+                    for(var i = 0;i<data.length;i++){
+                        var p = document.createElement('p');
+                        p.innerHTML = data[i];
+                        wrap.appendChild(p);
+                    }
+                },0)
+
+                
+            }
+        }
+    </script>
+</body>
+</html>

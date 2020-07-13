@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>我是星星</h1>
+    <h1>我是星星</h1>
+    <h1>我是星星</h1>
+    <h1>我是星星</h1>
+    <h1>我是星星</h1>
+
+    <div id="message">请评价</div>
+    <script>
+        var control = document.querySelectorAll('h1');
+        control = Array.from(control);
+        control.forEach(function(item,index){
+            item.addEventListener('click',function(){
+                control.forEach(function(item){
+                    item.style.color = ''
+                })
+                for(var i = 0;i<=index;i++){
+                    control[i].style.color = 'yellow'
+                }
+
+                // 根据 index 做 很差 差 一般 好 很好的评价
+                var msg = ''
+                switch(index){
+                    case 0: msg = '很差'
+                    break;
+                    case 1: msg = '差'
+                    break;
+                    case 2: msg = '一般'
+                    break;
+                    case 3: msg = '好'
+                    break;
+                    case 4: msg = '很好'
+                    break
+                    default: msg = '你还没评价';
+                    break;
+
+                }
+                message.innerHTML = msg
+            })
+        });
+    </script>
+</body>
+</html>

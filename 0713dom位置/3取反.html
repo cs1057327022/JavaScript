@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+        }
+    </style>
+</head>
+<body>
+    <button id="flag">点击</button>
+    <div class="box"></div>
+    <script>
+        // 你真我假  你假我真 ----> 取反
+        var btn = document.querySelector('#flag');
+        var box = document.querySelector('.box');
+        var flag = true;  //box 的true为显示 false为隐藏
+        btn.addEventListener('click',function(){
+            flag = !flag
+            // 通过flag 控制flag的显示隐藏
+            if(flag){
+                box.style.display = 'block'
+            }else{
+                box.style.display = 'none'
+            }
+        })
+    </script>
+</body>
+</html>

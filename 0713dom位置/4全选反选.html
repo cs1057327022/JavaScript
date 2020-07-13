@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <div>
+            <input class="all" type="checkbox"><span class="all1">全选</span>
+            <input class="resverse" type="checkbox">反选
+        </div>
+        <div><input class="check" type="checkbox"><span>选项01</span></div>
+        <div><input class="check" type="checkbox"><span>选项02</span></div>
+        <div><input class="check" type="checkbox"><span>选项03</span></div>
+        <div><input class="check" type="checkbox"><span>选项04</span></div>
+        <div><input class="check" type="checkbox"><span>选项05</span></div>
+    </form>
+    <script>
+        var ipts = document.querySelectorAll('.check');
+        ipts = Array.from(ipts);
+        var all = document.querySelector('.all');
+        var msg = document.querySelector('.all1');
+        var resverse = document.querySelector('.resverse')
+        // console.log(msg);
+
+        ipts.forEach(function(item){
+            // item 表示当前 选中的元素
+            item.addEventListener('change',function(){
+                var span = item.nextElementSibling;
+                if(item.checked){//选中
+                    // 当checked被选中时候：让兄弟元素 字体变色
+                    span.style.color = 'blue';
+                }else{//没选中
+                    span.style.color = '';
+                }
+
+                // 判断每一个input  5个是否全部都被选中
+                for(var i = 0;i<ipts.length;i++){
+                    if(ipts[i].checked == false){
+                        all.checked = false;
+                        resverse.checked = false;
+                        msg.innerHTML = '全选'
+                        break;
+                    }else{
+                        all.checked= true;
+                        msg.innerHTML = '全不选'
+
+                    }
+                }
+                // isAllChecked()
+
+            })
+        })
+        all.addEventListener('change',function(){
+            // 如果选中全选，选择项目 全部被选中  文字变为全不选
+            if(all.checked){
+                ipts.forEach(function(item){
+                    item.checked = true;
+                    item.nextElementSibling.style.color = 'blue';
+                    msg.innerHTML = '全不选'
+                })
+            }else{
+                ipts.forEach(function(item){
+                    item.checked = false;
+                    item.nextElementSibling.style.color = '';
+                    msg.innerHTML = '全选';
+                })
+            }
+        })
+
+        // 反选
+        resverse.addEventListener('change',function(){
+            // ipts.forEach(function(item){
+            //     // 取反
+            //     item.checked = !item.checked;//input 的取反处理
+            //     if(item.checked){
+            //         item.nextElementSibling.style.color = 'blue'
+            //     }else{
+            //         item.nextElementSibling.style.color = ''
+            //     }
+            // })
+            isResvers()
+
+
+            // for(var i = 0;i<ipts.length;i++){
+            //     if(ipts[i].checked == false){
+            //         all.checked = false;
+            //         msg.innerHTML = '全选'
+            //         break;
+            //     }else{
+            //         all.checked= true;
+            //         msg.innerHTML = '全不选'
+            //     }
+            // }
+            isAllChecked()
+        })
+
+        function isAllChecked(){
+            for(var i = 0;i<ipts.length;i++){
+                if(ipts[i].checked == false){
+                    all.checked = false;
+                    msg.innerHTML = '全选'
+                    break;
+                }else{
+                    all.checked= true;
+                    msg.innerHTML = '全不选'
+                }
+            }
+        }
+
+        function isResvers(){
+            ipts.forEach(function(item){
+                // 取反
+                item.checked = !item.checked;//input 的取反处理
+                if(item.checked){
+                    item.nextElementSibling.style.color = 'blue'
+                }else{
+                    item.nextElementSibling.style.color = ''
+                }
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        box.onclick = function(e){
+            console.log('点击了');
+            var x = e.offsetX;
+            var y = e.offsetY;
+            // 通过获取鼠标移动距离,将距离赋值给 元素的left top 属性:实现,元素的移动效果
+            document.onmousemove = function(e){
+                console.log(e.clientX);
+
+                // 需求 让鼠标在[中间]
+                box.style.left = e.clientX-x +'px';
+                box.style.top = e.clientY-y +'px';
+                // 坑1:默认body8px 导致鼠标不在元素上
+
+                // 坑2:在左上角
+            }
+        }
+
+        // 需求：在哪点击在的就开始在哪里拖动
+
+    </script>
+</body>
+</html>
