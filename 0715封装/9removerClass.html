@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box a b c"></div>
+    <script>
+        var div = document.querySelector('div');
+        removerClass(div,'c')
+        function removerClass(el,str){
+            // 1:判断 c 是否存在
+            var classes = el.className;
+            // classes = classes.split(/\s+/);// /\s+/ 匹配多个空格 \s空格字符 + 无限次匹配
+            // var res = classes.indexOf(str) !== -1 ? true : false;
+            // // 存在
+            // if(res){
+            //     // 2:删除 c
+            //     var newArr = classes.filter(function(item){
+            //         return item !== str;
+            //     })
+            //     var newStr = newArr.join(' ');
+            //     el.className = newStr;
+            // }
+
+
+            // 替换的方法
+            // var res = classes.replace(str,'')
+            // console.log(res);
+            // el.className = res
+
+            // return res
+        }
+    </script>
+</body>
+</html>

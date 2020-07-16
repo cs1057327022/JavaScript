@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //量词 设置 匹配字符的长度
+        //{m,n} 匹配字符长度 最小m 最大n
+        //{n,} 长度字符长度 大于等于n
+        //{n} 匹配字符长度为n
+
+        // .任意字符  \.点
+        var str = 'asd'
+        var reg = /^.{3}$/g     //验证 长度位3 任意字符
+        console.log(str.match(reg));
+
+
+        // 只能位数字 不限制长度
+
+        var reg1 = /^[0-9]{1,}$/
+        var str1 = '1213154125sadasd1241'
+        console.log(str1.match(reg1));
+
+        // 验证某一个字符是否符合正则
+        // regExp.test(str) 验证某一个字符是否符合 正则表达式；返回：true false
+        console.log(reg1.exec(str1));
+        
+        console.log(reg1.test(str1));
+
+
+        //  匹配 首部或者尾部为空格
+        var str2 = '    dddd      dddddd    '
+        var reg2 = /^\s{1,}|\s{1,}$/g
+        console.log(str2.replace(reg2,'-'));
+
+        // 需求：去掉一个字符串中所有空格
+        // 匹配所有空格
+        var reg3 = /\s{1,}/g;
+        console.log(str2.replace(reg3,''));
+    </script>
+</body>
+</html>

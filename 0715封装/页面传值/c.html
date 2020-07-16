@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>跳转</button>
+    <script>
+        var obj = {
+            musiclist:[
+                '少年','我也不知道','麻雀'
+            ],
+            name:'推荐专辑'
+        }
+
+        // localStorage
+
+        var btn = document.querySelector('button');
+        btn.onclick =function(){
+            for(var x in obj){
+                localStorage.setItem(x,obj[x])
+            }
+            location.href = 'd.html'
+        }
+    </script>
+</body>
+</html>

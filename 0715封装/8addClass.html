@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        addClass(box,'wrap');//作用给元素添加类名
+        /*
+        addClass of method className add to Element
+        option：(element|string)
+        */
+
+        function addClass(element,str){
+            var  list = element.classList;
+            list.add(str)
+            return element
+        }
+        addClass(box,'liuyucai')
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>跳转B</button>
+    <script>
+        var str = 'a数据';
+        // 从a页面 到b页面时候 需要将a中数据传入b中 --->页面间传值
+        // 1：url传值  传少量的字符串类型的数据
+        // 2：sessionStorage  浏览器关闭后sessionStorage会自动清空
+        // 3：locakStorage
+
+        var btn = document.querySelector('button');
+        // btn.onclick = function(){
+        //     location.href = 'b.html?str='+str
+        // }
+        var obj = {
+            username:'姑姑',
+            password:'asdadqqewqfq',
+            token:'sadwqfqfeqfq=====qwergqerqfgher',
+            list:['asdqw',123,42312]
+        }
+        console.log(sessionStorage);
+        // 1：a中往sessionStorage存数据
+        // 2：其他页面中 sessionStorage获取数据
+
+        btn.onclick = function(){
+            // setItem() 设置新增，修改sessionStorage 中数据
+            sessionStorage.setItem('obj',obj)
+            for(var k in obj){
+                sessionStorage.setItem(k,obj[k])
+            }
+            location.href = 'b.html'
+        }
+    </script>
+</body>
+</html>

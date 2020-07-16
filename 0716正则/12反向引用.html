@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'yyyy-mm-rr';
+        var year = 2020;
+        var mout = 07;
+        var data = 16;
+
+        var reg = /^(yyyy)[-](mm)[-](rr)$/
+        console.log(str.match(reg));
+        console.log(RegExp.$1);
+        console.log(RegExp.$2);
+        console.log(RegExp.$3);
+
+        // 通过反向引用：获取 分组中内容
+        // 外部 $1$2$3
+        // RegExp.$1 指：第一个分组 匹配结果
+        // RegExp.$2 指的是第二个分资指向的内容
+        // RegExp.$3 第三个分组匹配内容
+
+
+        // 正则表达式内部的反向引用
+        var reg2 = /(.)(王泽欣)\1{4}\2/g
+        // (.)--->s
+        // (王泽欣)---->王泽欣
+
+        var str1 = 's王泽欣ssss王泽欣王泽欣王泽欣王泽欣王泽欣王泽欣王泽欣王泽欣王泽欣'
+        console.log(str1.match(reg2));
+    </script>
+</body>
+</html>

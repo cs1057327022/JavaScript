@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <select name="pro" id="pro"></select>
+        <select name="city" id="city"></select>
+        <select name="area" id="area"></select>
+    </form>
+    <script src="area.js"></script>
+    <script>
+        var data = area;
+        var pro = document.querySelector('#pro');
+        var city = document.querySelector('#city');
+        var Area = document.querySelector('#area');
+
+        // 1:初始化省  遍历data 获取key 添加到 pro中
+        (function () {
+            for (var x in data) {
+                var option = document.createElement('option');
+                option.innerHTML = x;
+                option.value = x;
+                pro.appendChild(option);
+            }
+        })();
+
+        // 1.1 初始化市
+        // console.log(pro[0].value)
+        var cityData = data[pro[0].value][0];
+
+        (function () {
+            for (var y in cityData) {
+                var option = document.createElement('option');
+                option.innerHTML = y;
+                option.value = y;
+                city.appendChild(option);
+            }
+        })();
+
+
+
+        // 1.2初始化区
+        
+        (function () {
+            var areaData = cityData[city[0].value];
+            console.log(areaData);
+            for (var i = 0; i < areaData.length; i++) {
+                for (var z in areaData[i]) {
+                    var option = document.createElement('option');
+                    option.innerHTML = z;
+                    option.value = z;
+                    Area.appendChild(option);
+                }
+            }
+        })();
+
+        // 2:当选择省份发生变化时候
+        pro.onchange = function(e){
+            // 如何获取用户选择了哪一个option
+            // selectedIndex返回选择的索引值
+            // console.log(pro.selectedIndex)
+            var cityIndex = pro[pro.selectedIndex].value;
+            // console.log(cityIndex);
+            cityData = data[cityIndex][0];
+            console.log(cityData);
+
+            // 清空 selet city
+            city.innerHTML = ''
+            for (var y in cityData) {
+                var option = document.createElement('option');
+                option.innerHTML = y;
+                option.value = y;
+                city.appendChild(option);
+            }
+
+            // 更新区
+            var areaIndex = city[city.selectedIndex].value;//获取市
+            var areaData = cityData[areaIndex];//根据市 获取区
+            console.log(areaData);
+            
+            Area.innerHTML = null;
+
+            for (var i = 0; i < areaData.length; i++) {
+                for (var z in areaData[i]) {
+                    var option = document.createElement('option');
+                    option.innerHTML = z;
+                    option.value = z;
+                    Area.appendChild(option);
+                }
+            }
+        
+        }
+
+        // 3：当用户选择市发生变化
+        city.onchange = function(){
+            // 3.1 用户选择了哪一个市
+            var areaIndex = city[city.selectedIndex].value;
+            
+            // 3.2 根据选择的市获取区数据
+            var areaData = cityData[areaIndex]
+
+            // 3.3 根据区数据更新select  area
+            Area.innerHTML = null;
+            for (var i = 0; i < areaData.length; i++) {
+                for (var z in areaData[i]) {
+                    var option = document.createElement('option');
+                    option.innerHTML = z;
+                    option.value = z;
+                    Area.appendChild(option);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="animation.js"></script>
+    <script>
+        var box = document.querySelector('.box');
+        // 宽度从100变为200之后 高度从100 到300
+        // setTimeout(function(){
+        //     ani(box,'width',200,0.5)
+        // },16.7)
+        // setTimeout(function(){
+        //     ani(box,'height',300,0.5)
+        // },517)
+        // 写法太费劲 性能太差
+
+
+        ani(box, 'width', 200, 0.5, function () {
+            ani(box, 'height', 300, 0.5)
+        })
+
+    </script>
+</body>
+
+</html>

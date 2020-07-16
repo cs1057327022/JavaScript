@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 从一类字符中 取出某[一个字符]
+        var reg1 = /人/  //人 一个正则字符
+        var reg = /[0-9]/g//[0-9] 一个字符类
+        var str = 'gasd1qasd1231512fsd1341';//待匹配字符
+
+        var reg2 = /[日本人美国人韩国人]/g
+        // var reg2 = /(日本人美国人)|(韩国人)/g
+        var str1 = '日本人美国人韩国人';
+        console.log(str1.match(reg2));
+    </script>
+</body>
+</html>

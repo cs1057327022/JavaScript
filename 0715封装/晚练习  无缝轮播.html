@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 400px;
+            height: 200px;
+            overflow: hidden;
+        }
+        .view{
+            width: 2000px;
+        }
+        .view img{
+            width: 400px;
+            height: 200px;
+            float: left;
+        }
+        .warper{
+            width: 400px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .conctrol{
+            width: 60px;
+            height: 15px;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .conctrol .conctrol-item{
+            width: 15px;
+            height: 15px;
+            background-color: #000000;
+            opacity: 0.3;
+            border-radius: 50%;
+        }
+        .control-btn{
+            width: 30px;
+            height: 65px;
+            background-color: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            top: 50%;
+            transform: translate(0,-50%);
+            line-height: 65px;
+            text-align: center;
+        }
+        .previous{
+            left: 0;
+        }
+        .next{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="warper">
+        <div class="box">
+            <div class="view">
+                <img src="images/1.jpg">
+                <img src="images/2.jpg">
+                <img src="images/3.jpg">
+                <!-- <img src="images/1.jpg"> -->
+            </div>
+        </div>
+        <div class="conctrol">
+            <div class="conctrol-item"></div>
+            <div class="conctrol-item"></div>
+            <div class="conctrol-item"></div>
+        </div>
+        <div class="conctrol-dom">
+            <div class="previous control-btn"><</div>
+            <div class="next control-btn">></div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var imgs = document.querySelectorAll('.view>img');
+    var previous = document.querySelector('.previous');
+    var next = document.querySelector('.next');
+    var view = document.querySelector('.view');
+    var box = document.querySelector('.box');
+
+    
+    var num = 0
+    function next1(){
+        num++;
+        var imgWidth = imgs[0].offsetWidth
+        view.style.marginLeft = -imgWidth*num+'px'
+
+        if(num==imgs.length){
+            view.style.marginLeft = 0
+            num=0
+        }
+    }
+    next.addEventListener('click',function(){
+        num++;
+        var imgWidth = imgs[0].offsetWidth;
+        view.style.marginLeft = -imgWidth*num+'px'
+        if(num==imgs.length){
+            view.style.marginLeft = 0
+            num=0
+        }
+    })
+    previous.addEventListener('click',function(){
+        num--;
+        var imgWidth = imgs[0].offsetWidth
+        view.style.marginLeft = -imgWidth*num+'px'
+        if(num<0){
+            view.style.marginLeft = -imgWidth*(imgs.length-1)+'px'
+            num=2
+        }
+        
+    })
+
+
+    box.addEventListener('mouseenter', function() {
+        clearInterval(timer);
+        timer = null; // 清除定时器变量
+    });
+    box.addEventListener('mouseleave', function() {
+        timer = setInterval(function() {
+            //手动调用点击事件
+            next1();
+        }, 3000);
+    });
+
+
+    // var count = 0
+    // function start(){
+    //     var imgWidth = imgs[0].offsetWidth
+    //     view.style.marginLeft = 0
+    //     var timer = setInterval(function(){
+    //     count --
+    //     view.style.marginLeft = count+'px';
+    //     if(count == (-imgWidth*(imgs.length-1))){
+    //         view.style.marginLeft = 0
+    //         count = 0;
+    //     }
+        
+    // },5)
+    // }
+    // start()
+    
+    var timer = setInterval(function() {
+        next1();
+    }, 3000);
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .box {
+        width: 150px;
+        height: 150px;
+        background-color: red;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      var box = document.querySelector(".box");
+      box.onmousedown = function (event) {
+        var x = event.offsetX;
+        var y = event.offsetY;
+        document.onmousemove = function (e) {
+          // 如何求left 的最大值 和最小值  0px
+          // -----> 如何获取浏览器视图窗口的宽度  innerWith
+          // 如果求top 的最大值回和最小 0
+          //-------> 如何获取视图口高   innerHeight
+          var moveX = e.clientX - x;
+          var moveY = e.clientY - y;
+
+          if (moveX <= 0) {
+            moveX = 0;
+          }
+          if (moveX >= innerWidth - 150) {
+            moveX = innerWidth - 150;
+          }
+          if (moveY <= 0) {
+            moveY = 0;
+          }
+          if (moveY >= innerHeight - 150) {
+            moveY = innerHeight - 150;
+          }
+          box.style.left = moveX + "px";
+          box.style.top = moveY + "px";
+
+          // 处理bug 鼠标移出边界后 鼠标移动事件的处理 没有取消
+          if (
+            e.clientX > innerWidth ||
+            e.clientY > innerHeight ||
+            e.clientY < 0 ||
+            e.clientX < 0
+          ) {
+            console.log("超出视图窗口");
+            document.onmousemove = null;
+          }
+        };
+      };
+      box.onmouseup = function () {
+        document.onmousemove = null;
+      };
+    </script>
+  </body>
+</html>

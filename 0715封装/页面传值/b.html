@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>清空</button>
+    <button class="btn">删除</button>
+    <script>
+        // var query = location.search;
+        // query = query.replace('?','');
+
+        // console.log(query);//{str:'xxxx'}
+
+        // sessionStorage.getItem(str) 从sessionStorage 中获取某个str属性的值
+        var username = sessionStorage.getItem('username')
+        console.log(username);
+        document.querySelector('button').onclick = function(){
+            // clear() 清空sessionStorage中所有数据
+            sessionStorage.clear();
+        }
+
+        document.querySelector('.btn').onclick = function(){
+            // removeItem() 删除sessionStorage 中某一个字段
+            sessionStorage.removeItem('password');
+        }
+    </script>
+</body>
+</html>

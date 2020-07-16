@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+    //   var data = new Date();
+    //   // data.getDate
+    //   console.log(data);
+    //   // 2020-07-16 16:32:08
+    //   function formatDate(date) {
+    //     // 1: 确定数据结构式什么？
+    //     var str = "YYYY-MM-DD HH:FF:SS";
+    //     // 2：获取具体的年月日时分秒；
+    //     console.dir(date);
+    //     var time = {
+    //       "Y+": date.getFullYear(),
+    //       "M+": date.getMonth() + 1,
+    //       "D+": date.getDate(),
+    //       "H+": date.getHours(),
+    //       "F+": date.getMinutes(),
+    //       "S+": date.getSeconds(),
+    //     };
+
+    //     // 3 把 str 字符 替换为 时间  YYYY -- 2020 ...
+    //     // 3.1  如何获取正则匹配的 YYYY --->   Regxp.$1
+    //     // 3.2  完成替换  replace(Regxp.$1,time[x])
+    //     for (var x in time) {
+    //       var reg = new RegExp(`(${x})`); //  ./(Y+)/
+    //       if (reg.test(str)) {
+    //         // 把匹配到内容替换为 时间
+    //         var newVal = time[x] >= 10 ? time[x] : "0" + time[x];
+
+    //         str = str.replace(RegExp.$1, newVal);
+    //       }
+    //     }
+    //     // 2020-07-16 16:32:08
+    //     return str;
+    //   }
+
+    //   var res = formatDate(data);
+    //   console.log(res); // 2020-07-16 16:32:08
+
+    //   // 2020/07/16/ 16:02:00
+    </script>
+  </body>
+</html>
+
+<!-- 升级1 -->
+<script>
+  // 新增需求；日期的格式不确定的；
+  // 2020-01-02 16:12:11  2020/02/10 16:12:17
+
+  function formatDate(date, str) {
+    var res = str;
+    var time = {
+      "Y+": date.getFullYear(),
+      "M+": date.getMonth() + 1,
+      "D+": date.getDate(),
+      "H+": date.getHours(),
+      "F+": date.getMinutes(),
+      "S+": date.getSeconds(),
+    };
+
+    for (var x in time) {
+      var reg = new RegExp(`(${x})`); //  ./(Y+)/
+      if (reg.test(res)) {
+        // 把匹配到内容替换为 时间
+        var newVal = time[x] >= 10 ? time[x] : "0" + time[x];
+
+        res = res.replace(RegExp.$1, newVal);
+      }
+    }
+
+    return res;
+  }
+//   var res = formatDate(new Date(), "YYYY.MM.DD HH:FF:SS");
+//   console.log(res);
+</script>
+
+<!-- 升级二 -->
+<script>
+  Date.prototype.format = function (str) {
+    var res = str;
+    var time = {
+      "Y+": this.getFullYear(),
+      "M+": this.getMonth() + 1,
+      "D+": this.getDate(),
+      "H+": this.getHours(),
+      "F+": this.getMinutes(),
+      "S+": this.getSeconds(),
+    };
+    for (var x in time) {
+      var reg = new RegExp(`(${x})`); //  ./(Y+)/
+      if (reg.test(res)) {
+        // 把匹配到内容替换为 时间
+        var newVal = time[x] >= 10 ? time[x] : "0" + time[x];
+
+        res = res.replace(RegExp.$1, newVal);
+      }
+    }
+
+    return res;
+  };
+
+  // 需求 format 最为时间对象下的API
+  var a = new Date();
+  a = a.format("YYYY.MM.DD HH:FF:SS");
+  console.log(a,'==============');
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button>隐藏</button>
+    <div class="box"></div>
+    <script src="todos.js"></script>
+    <script>
+        var box =document.querySelector('.box');
+        var btn =document.querySelector('button');
+        // btn.onclick = function(){
+        //     hide(box);
+        // }
+
+        // hide(box);//渐入式隐藏某一个html 元素
+        // function hide(el){
+        //     var val = 1;
+        //     el.style.opacity = 1;
+        //     var timer = setInterval(function(){
+        //         val -= 0.1;
+        //         if(val<=0){
+        //             el.style.opacity = 0;
+        //             el.style.display = 'none';
+        //             clearInterval(timer);
+        //             return
+        //         }
+        //         el.style.opacity = val;
+        //     },30)
+        //     return el;
+        // }
+        /*
+        hide of method can hide element
+        option(element)
+        */
+
+        // setTimeout(function(){
+        //     show(box)
+        // },500)
+        
+        // // show  显示 hide的相反方法
+        // function show(el){
+        //     var val = 0;
+        //     el.style.display = 'block';
+        //     el.style.opacity = val;
+        //     var timer = setInterval(function(){
+        //         val += 0.1;
+        //         if(val>=1){
+        //             el.style.opacity = 1;
+        //             el.style.display = 'block';
+        //             clearInterval(timer);
+        //             return
+        //         }
+        //         el.style.opacity = val;
+        //     },30)
+        // }
+    </script>
+</body>
+</html>

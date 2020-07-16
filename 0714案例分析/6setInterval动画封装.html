@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+        }
+
+        /* .box:hover{
+            width: 200px;
+            transition: all 0.5s;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+
+        // 获取el 元素 str属性的样式值
+        function getStyle(el, str) {
+            var res;
+            if (el.currentStyle) {
+                // ie
+                res = el.currentStyle[str]
+            } else {
+                // 非IE
+                res = getComputedStyle(el, null)[str]
+            }
+            return res;
+        }
+
+        var box = document.querySelector('.box');
+        ani(box, 'width', 200, 0.5)
+        ani(box, 'opacity', 0.3, 0.5)
+
+
+        function ani(el, str, end, time) {
+            var start = getStyle(el, str);
+            start = parseInt(start);
+            console.log(str.start);//求过度值
+            var s = end - start;
+            time = time * 1000
+            var timer = setInterval(function () {
+                start += s / (time / 16.7)
+                // el.style[str] = start +'px'
+
+                if (s > 0) {
+                    if (start >= end) {
+                        str == 'opacity' || str == 'zIndex' ? (el.style[str] = end) : (el.style[str] = end + 'px')
+                        clearInterval(timer)
+                    }
+                }else{
+                    if (start <= end) {
+                        str == 'opacity' || str == 'zIndex' ? (el.style[str] = end) : (el.style[str] = end + 'px')
+                        clearInterval(timer)
+                    }
+                }
+                if (str == 'opacity' || str == 'zIndex') {
+                    el.style[str] = start
+                } else {
+                    el.style[str] = start + 'px'
+                }
+            }, 16.7)
+        }
+
+
+        // // 一步一步实现的 增加条件的问题如下：
+        // //1 实现了 s>0  动画赋值 有单位
+
+        // function ani1(el, str, end, time) {
+        //     var start = getStyle(el, str);
+        //     start = parseInt(start);
+        //     console.log(str, start);
+        //     var s = end - start; // 求过度值
+        //     time = time * 1000;
+        //     var timer = setInterval(function () {
+        //         //   time/16.7 ----> fun 执行的次数
+        //         // s / time/16.7   每16.7ms 的值变化量 （平均值 ）
+        //         start += s / (time / 16.7);
+        //         el.style[str] = start + "px";
+        //     }, 16.7); // 浏览器刷新时间是16.7ms
+        // }
+
+
+
+        // //问题二： 赋值有条件 有的有单位 有的没单位
+        // function ani2(el, str, end, time) {
+        //     var start = getStyle(el, str);
+        //     start = parseInt(start);
+        //     console.log(str, start);
+        //     var s = end - start; // 求过度值
+        //     time = time * 1000;
+        //     var timer = setInterval(function () {
+        //         start += s / (time / 16.7)
+
+        //         // 普通的赋值 区分 哪些属性需要单位
+        //         // 处理【没有单位 css 属性】
+        //         if (str == "opacity" || str === "zIndex") {
+        //             el.style[str] = start;
+        //         } else {
+        //             el.style[str] = start + "px";
+        //         }
+        //     }, 16.7); // 浏览器刷新时间是16.7ms
+        // }
+
+        // //问题三  出口条件也变化了  s>0 可能 s<0 影响到  出口 赋值条件
+        // // ---> 案例  1——0.3  100px---200px
+        // function ani3(el, str, end, time) {
+        //     var start = getStyle(el, str);
+        //     start = parseInt(start);
+        //     console.log(str, start);
+        //     var s = end - start; // 求过度值
+        //     time = time * 1000;
+        //     var timer = setInterval(function () {
+
+        //         start += s / (time / 16.7);
+        //         // s 不同出口条件不同
+        //         if (s > 0) {
+        //             if (start >= end) {
+        //                 // 出口前；也需要 el 的str 属性赋值 ；
+        //                 // ---> 区分；哪些str 需要px 哪些不需要px
+        //                 str == "opacity" || str === "zIndex"
+        //                     ? (el.style[str] = end)
+        //                     : (el.style[str] = end + "px");
+        //                 clearInterval(timer);
+        //             }
+        //         } else {
+        //             if (start <= end) {
+        //                 str == "opacity" || str === "zIndex"
+        //                     ? (el.style[str] = end)
+        //                     : (el.style[str] = end + "px");
+        //                 clearInterval(timer);
+        //             }
+        //         }
+
+        //         if (str == "opacity" || str === "zIndex") {
+        //             el.style[str] = start;
+        //         } else {
+        //             el.style[str] = start + "px";
+        //         }
+        //     }, 16.7); // 浏览器刷新时间是16.7ms
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .timeBox{
+            width: 100px;
+            height: 100px;
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+            font-weight: 800;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+        }
+        .grade{
+            font-size: 50px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="hours timeBox"></div>
+        <div class="grade">:</div>
+        <div class="minutes timeBox"></div>
+        <div class="grade">:</div>
+        <div class="seconds timeBox"></div>
+    </div>
+</body>
+</html>
+<script>
+    var box = document.querySelector('.box')
+    var hours = document.querySelector('.hours');
+    var minutes = document.querySelector('.minutes');
+    var seconds = document.querySelector('.seconds');
+
+    var data = new Date();
+
+    var nowTime = data.getTime();
+
+    var futuredata = new Date('2020-7-16 22:03:00');
+    var futureTime = futuredata.getTime();
+
+    var time = futureTime-nowTime
+
+    var countM = 0;
+    var countH = 0;
+    var s = parseInt(time % (1000 * 60)/ 1000) >= 10 ? parseInt(time % (1000 * 60)/ 1000) : '0'+ parseInt(time % (1000 * 60)/ 1000);
+    var m = parseInt((time % (1000 * 60 * 60)) / (1000 * 60)) >= 10 ? parseInt((time % (1000 * 60 * 60)) / (1000 * 60)) : '0' + parseInt((time % (1000 * 60 * 60)) / (1000 * 60));
+    var h = parseInt((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) >= 10 ? parseInt((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) : '0' + parseInt((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    minutes.innerHTML = m
+    seconds.innerHTML = s;
+    hours.innerHTML = h
+    var timer = setInterval(function(){
+        s--
+        if(s<10){
+            seconds.innerHTML = '0' + s
+        }else{
+            seconds.innerHTML = s
+        }
+        
+        if(s <= 0){
+            s = 60
+            countM++;
+        }
+        var res = m - countM
+        res = res >= 10 ? (m - countM) : '0' + (m - countM)
+        minutes.innerHTML = res;
+        if((m-countM) == 0){
+            m = '0'+0
+        }
+        if((m-countM) < 0){
+            minutes.innerHTML = 59;
+            countH++
+            m = 60
+        }
+        var res1 = h - countH;
+        res1 = res1 >= 10 ? (h - countH) : '0'+ (h - countH)
+        hours.innerHTML = res1;
+        if(h - countH < 0){
+            box.style.display = 'none'
+            clearInterval(timer)
+            return
+        }
+    },1000)
+
+
+</script>

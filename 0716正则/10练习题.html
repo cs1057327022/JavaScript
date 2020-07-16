@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1: 以数字字母开头 匹配结果字符长度为8为
+        // var str = '12345678'
+        // var reg = /^[0-9a-zA-Z]{8}$/g
+        // console.log(str.match(reg));
+
+        // 2：匹配一个数字字符字符长度为18为
+        // var str = '123456789012345678'
+        // var reg = /^\d{18}$/g
+        // console.log(reg.test(str));
+
+        // 3: 手机号码正则
+        // var str = '12345678901'
+        // var reg = /^[1]\d{10}$/
+        // console.log(reg.test(str));
+
+        // 4: 邮箱的验证码
+        // var reg = /^[0-9a-zA-Z]{1,32}@[qq|sina|163|192]\.[cn|com]/
+        // var str = '111111@qq.com'
+        // console.log(reg.test(str));
+
+        // 5：写一个 8-12 的密码验证。
+        // var str = '12345678'
+        // var reg = /^.{8,12}$/
+        // console.log(reg.test(str));
+
+        // 6：http开头 中间为任意字符，长度不限，结尾必须是.com.cn
+        // var str = 'http12311231.com.cn'
+        // var reg = /^http.+\.com\.cn$/
+        // console.log(reg.test(str));
+
+        var res = 'https://www.aaaaa.com'
+        var reg =/^(https|http):\/\/[a-zA-z]{1,3}\.\w+\.(com)$/
+        console.log(reg.test(res));
+        // 正则的运算：从左往右匹配：分组优先匹配
+    </script>
+</body>
+</html>
