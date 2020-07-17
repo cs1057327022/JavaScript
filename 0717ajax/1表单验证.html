@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        form{
+            width: 400px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            padding: 20px 15px;
+            box-shadow: 5px 5px 5px #cccccc;
+            border: 1px solid #000000;
+        }
+        .form-control{
+            width: 100%;
+            padding: 10px 5px;
+        }
+        .form-control label{
+            font-size: 14px;
+            color: #36384e;
+        }
+        .form-control input{
+            width: 80%;
+            height: 30px;
+            outline: none;
+            border: 1px solid #cccccc;
+        }
+        .form-control p{
+            font-size: 12px;
+            text-align: left;
+            color: red;
+            margin-top: 5px;
+            padding-left: 50px;
+            display: none;
+        }
+        .login{
+            width: 85%;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            color: #ffffff;
+            background-color: tomato;
+            outline: none;
+            appearance: none;
+            border-radius: 15px;
+            border: none;
+            margin-top: 20px;
+            margin-left: 7.5%;
+        }
+        
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="form-control">
+            <label for="">用户名:</label>
+            <input type="text" name="username" id="username">
+            <p class="userWain">请输入6-16位的数字或字母</p>
+        </div>
+        <div class="form-control">
+            <label for="">密&#X3000;码:</label>
+            <input type="password" name="password" id="password">
+            <p class="passwordWain">请输入8-12位的开头大写的数字字符下划线</p>
+        </div>
+        <div class="form-control">
+            <button class="login">登陆</button>
+        </div>
+    </form>
+    <script>
+        var btn = document.querySelector('.login');
+        var username = document.querySelector('#username');
+        var password = document.querySelector('#password');
+        var userWain = document.querySelector('.userWain');
+        var passwordWain = document.querySelector('.passwordWain');
+
+        btn.onclick = function(e){
+            e.preventDefault();
+            var user = username.value;
+            var pass = password.value;
+            var reg = /^[0-9a-zA-Z]{6,16}$/;
+            var reg1 = /^[A-Z]\w{7,11}$/;  //贪婪匹配  能匹配9不会匹配8
+
+            console.log(reg.test(user));
+
+            if(!reg.test(user)){
+                userWain.style.display = 'block';
+            }else{
+                userWain.style.display = 'none';
+            }
+            if(!reg1.test(pass)){
+                passwordWain.style.display = 'block';
+            }else{
+                passwordWain.style.display = 'none';
+            }
+            if(reg.test(user)&&reg1.test(pass)){
+                console.log('登陆成功')
+            }
+        }
+    </script>
+</body>
+</html>

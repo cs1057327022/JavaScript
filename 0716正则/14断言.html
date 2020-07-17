@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'a eatix regular exprution';
+
+        // regular of e
+        // 断言是 匹配字符的条件判断；断言不会匹配具体字符
+        var reg = /e(?=gular)/g //匹配的 e 条件是：e在右边字符是否等于gular
+        console.log(reg.exec(str));
+        console.log(str.replace(reg,'我'));
+        
+        var reg2 = /\d(?=\d{5})/g
+
+        var str1 = 's3d3';
+        var str2 = 'd111111111w2222';
+        console.log(reg2.exec(str1));
+        console.log(reg2.exec(str2));
+        // 正则表达式匹配方式 从左往哪个右
+        // 前瞻：匹配字符时候；还需要往右边看看是否满足某个条件 也叫正向匹配
+        // 匹配往后看看,叫负向匹配 (可以理解为后顾) js没有后顾概念
+
+        // 前瞻 后顾
+
+        // 前:字符串尾部
+        // 后:字符串头部
+
+        // 匹配re 但是不匹配开头的re匹配单词内部的re
+    </script>
+</body>
+</html>

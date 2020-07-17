@@ -104,10 +104,22 @@
             num=0
         }
     }
+    var sum = 0;
     next.addEventListener('click',function(){
         num++;
         var imgWidth = imgs[0].offsetWidth;
-        view.style.marginLeft = -imgWidth*num+'px'
+       
+        view.style.marginLeft = sum;
+
+        var timer1 = setInterval(function(){
+            sum --;
+            // view.style.marginLeft = -imgWidth*num+'px'
+            view.style.marginLeft = sum+'px'
+            if(sum ==  -imgWidth*num){
+                clearInterval(timer1)
+            }
+        },1)
+
         if(num==imgs.length){
             view.style.marginLeft = 0
             num=0
@@ -125,16 +137,16 @@
     })
 
 
-    box.addEventListener('mouseenter', function() {
-        clearInterval(timer);
-        timer = null; // 清除定时器变量
-    });
-    box.addEventListener('mouseleave', function() {
-        timer = setInterval(function() {
-            //手动调用点击事件
-            next1();
-        }, 3000);
-    });
+    // box.addEventListener('mouseenter', function() {
+    //     clearInterval(timer);
+    //     timer = null; // 清除定时器变量
+    // });
+    // box.addEventListener('mouseleave', function() {
+    //     timer = setInterval(function() {
+    //         //手动调用点击事件
+    //         next1();
+    //     }, 3000);
+    // });
 
 
     // var count = 0
@@ -153,7 +165,7 @@
     // }
     // start()
     
-    var timer = setInterval(function() {
-        next1();
-    }, 3000);
+    // var timer = setInterval(function() {
+    //     next1();
+    // }, 3000);
 </script>
