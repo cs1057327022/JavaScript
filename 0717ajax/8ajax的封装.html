@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        ajax({
+            method: 'get',
+            data: {
+                page: 1
+            },
+            url: 'www.baidu.com',
+            success: function (data) {
+                console.log(data); //响应数：xhr
+            },
+            error: function (err) {
+                console.log(err, 'eeeee');
+            },
+            async: true
+        })
+
+        /*
+        ajax(options 发送http请求)
+        options | @Object
+        @method | Strng get post  表示请求方式
+        @Url    | string 表示请求地址
+        @data   | object 表示请求参数
+        @success| function 表示请求成功后：如何处理响应数据
+        @error  | function 表示请求失败后：如何处理失败情况
+        @async  | Boolean 表示请求的程序 是同步还是异步
+        */
+
+        function ajax(option) {
+            // 1：获取需要的数据：方法 地址 参数 回调函数
+            
+            var {method,data,url,success,error,async} = option
+            // console.log(method, data, url, success, error);
+
+            // 2：发送请求步骤 分四部
+            // 2.1实例化对象
+            var xhr = new XMLHttpRequest();
+            // 2.2如果去get请求
+            if (method === 'get' || method === 'GET') {
+                // 2.21 发送get请求
+                // 2.22 处理请求地址 和请求参数
+                var str = url + '?'
+                for (var x in data) {
+                    str += `${x}=${data[x]}&`
+                }
+
+                url = str.slice(0, str.length - 1);
+                // console.log(url);
+
+                // 以上为处理 想要的url 地址 
+                xhr.open(method, url, async);
+                xhr.send();
+                // 2：处理响应
+                xhr.onreadystatechange = function () {
+                    if (xhr.status === 400 && xhr.readyState === 4) {
+                        // 表示请求成功
+                        // 获取响应数据
+                        var str1 = xhr.response;
+                        // 请求成功后:执行成功处理函数
+                        success(str1)
+                    } else {
+                        // 请求失败执行失败处理函数
+                        // 失败情况多:所以返回xhr
+                        error(xhr);
+                    }
+                }
+
+            }
+            if (method === 'post' || method === 'POST') {
+                var params = '';
+                for (var x in data) {
+                    params = `${x}=${data[x]}&`
+                }
+                params = params.slice(0, params.length - 1);
+                xhr.open(method, url, true);
+                xhr.open(params);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.status === 400 && xhr.readyState === 4) {
+                        var str1 = xhr.response;
+                        success(str1)
+                    } else {
+                        error(xhr);
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

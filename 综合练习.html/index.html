@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="网上购物,网上商城,二之店,女装,男主,咖啡运动,饰品,美妆,母婴,居家,国际,生活">
+    <title>二之店</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/font_1mk2jvx0m5f/iconfont.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-top">
+                <div class="logo"><img src="images/logo.png"></div>
+                <div class="search">
+                    <input class="search-text" type="text" placeholder="请输入想要拍的商品">
+                    <button class="btn"><i class="iconfont icon-sousuo"></i>搜寻</button>
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <div class="home"><a href="./view/home.html" target="content">首页</a></div>
+                <div class="login"><a href="./view/login.html" target="content">登录</a></div>
+                <div class="register"><a href="./view/register.html" target="content">注册</a></div>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="important-content">
+        <iframe src="./view/home.html" name="content" frameborder="0"></iframe>
+    </div>
+</body>
+</html>
+<script>
+    var if1 = document.querySelector('iframe');
+    console.log(if1);
+    if1.onscroll = function(){
+        console.log(1111);
+    }
+    
+</script>
