@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="网上购物,网上商城,二之店,女装,男主,咖啡运动,饰品,美妆,母婴,居家,国际,生活">
     <title>二之店</title>
-    <link rel="stylesheet" href="css/public.css">
-    <link rel="stylesheet" href="css/font_1mk2jvx0m5f/iconfont.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="css/font_qrek9us9mp/iconfont.css">
+    <link rel="stylesheet" href="./css/font_1mk2jvx0m5f/iconfont.css">
 </head>
 <body>
     <nav>
@@ -19,23 +20,27 @@
                 </div>
             </div>
             <div class="nav-bottom">
-                <div class="home"><a href="./view/home.html" target="content">首页</a></div>
-                <div class="login"><a href="./view/login.html" target="content">登录</a></div>
-                <div class="register"><a href="./view/register.html" target="content">注册</a></div>
+                <div class="home underline"><a href="./view/home.html" target="content">首页</a></div>
+                <div class="login underline"><a href="./view/login.html" target="content">登录</a></div>
+                <div class="shopping underline"><a href="./view/shopping.html" target="content">购物车</a></div>
+                <div class="register underline"><a href="./view/register.html" target="content">注册</a></div>
+                <div class="quiet underline"><a href="./view/home.html" target="content">退出</a></div>
             </div>
         </div>
         
     </nav>
+    <div class="loading">
+        <img src="images/loading.jpg" alt="">
+    </div>
+    <div class="tips"><i class="iconfont icon-gou"></i><span></span></div>
     <div class="important-content">
         <iframe src="./view/home.html" name="content" frameborder="0"></iframe>
     </div>
+    <div class="foot">
+        <img src="images/footer.png">
+    </div>
 </body>
 </html>
-<script>
-    var if1 = document.querySelector('iframe');
-    console.log(if1);
-    if1.onscroll = function(){
-        console.log(1111);
-    }
-    
-</script>
+<script src="js/jq/jquery.js"></script>
+<script src="js/loading1.js"></script>
+<script src="./js/public.js"></script>

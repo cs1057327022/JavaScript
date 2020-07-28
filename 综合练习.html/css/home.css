@@ -5,11 +5,11 @@
     text-decoration: none;
 }
 ::-webkit-scrollbar{
-    display: none;
+    /* display: none; */
 }
+
 body,html{
     width: 100%;
-    height: 100px;
 }
 nav{
     width: 100%;
@@ -19,16 +19,164 @@ nav>ul{
     display: flex;
     justify-content: space-around;
 }
-nav>ul>li>a{
-    height: 50px;
+nav>ul>li{
+    text-align: center;
+    border-radius: 25px;
+    width: 120px;
+    height: 30px;
     font-size: 16px;
     color: #999999;
-    line-height: 50px;
+    line-height: 30px;
 }
-
+nav>ul>li:hover{
+    background-color: purple;
+    color: #fff;
+}
+/* 轮播图 */
 .banar{
     width: 100%;
+    position: relative;
+    margin-top: 10px;
 }
-.banar>.warp>img{
+.banar>.warper>.warp>img{
     width: 100%;
+    display: none;
+    border-radius: 15px;
+    opacity: 1;
+}
+.show{
+    display: block !important;
+}
+.control-btn{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(211, 19, 179, 0.5);
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    transform: translate(0px,-50%);
+}
+.left{
+    left: 0;
+}
+.right{
+    right: 0;
+}
+
+
+
+
+/* 内容页 */
+.content img{
+    width: 200px;
+    height: 200px;
+}
+.content>ul{
+    width: 1050px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.content>ul>li{
+    float: left;
+    width: 20%;
+    margin-top: 25px;
+}
+.content>ul>li>.content-title{
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+    white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.content>ul>li>.price{
+    color: red;
+    font-weight: 700;
+    line-height: 24px;
+}
+.content>ul>li>p>.label{
+    display: inline-block;
+    float: right;
+    margin-right: 15px;
+}
+.content>ul>li>p{
+    margin-top: 5px;
+}
+
+
+/* 二级分类 */
+.coffee{
+    margin-top: 20px;
+    display: none;
+}
+.title{
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    margin-top: 20px;
+}
+.information{
+    width: 20%;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.coffee img{
+    width: 200px;
+    height: 200px;
+}
+.coffee  .content-title{
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+    white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.coffee .price{
+    color: red;
+    font-weight: 700;
+    line-height: 24px;
+}
+.coffee  .label{
+    display: inline-block;
+    float: right;
+    margin-right: 15px;
+}
+.coffee p{
+    margin-top: 5px;
+}
+
+
+.fix{
+    width: 10%;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    position: fixed;
+    left: 0;
+    top: 20%;
+    display: none;
+}
+.fix li{
+    text-align: center;
+    padding: 15px 5px;
+}
+
+
+/* 返回顶部 */
+.top{
+    text-align: center;
+    position: fixed;
+    right: 0;
+    bottom: 30px;
+    width: 40px;
+    height: 40px;
+    padding: 15px;
+    background-color: rgba(151,45,151,0.7);
+    border-radius: 15px;
 }

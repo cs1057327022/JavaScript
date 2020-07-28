@@ -24,7 +24,7 @@
   1.3 在响应事件处理函数内容：处理响应数据
    - XmlHttpRequest.status 获取http 状态码
    - XmlHttpRequest.readyStatus 获取状态
-   - XmlHttpRequest。respose 获取【响应体】中数据 (json数据或 xml)
+   - XmlHttpRequest.respose 获取【响应体】中数据 (json数据或 xml)
 
 2：怎么处理？
   2.1 根据dom 结构：分析页面需要的数据结构

@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+.content{
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.content-left{
+    float: left;
+}
+.content-right{
+    float: left;
+}
+/* 返回按钮 */
+.content>.content-left>button{
+    width: 100px;
+    height: 40px;
+    outline: none;
+    border: 1px solid #DCDFE6;
+}
+
+/* 放大镜 */
+/* 图片部分 */
+.operation{
+    zoom: 1;
+    position: relative;
+}
+.operation::after{
+    content: "";
+    clear: both;
+    display: block;
+    visibility: hidden;
+}
+.operation>.img{
+    width: 360px;
+    height: 360px;
+    float: left;
+    border-radius: 10px;
+
+}
+.operation>.img>img{
+    width: 360px;
+    height: 360px;
+}
+.operation>.bigImg{
+    width: 360px;
+    height: 360px;
+    background-color: purple;
+    position: absolute;
+    left: 360px;
+    overflow: hidden;
+    float: left;
+    display: none;
+}
+.bigImg>img{
+    width: 720px;
+    height: 720px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.smImg>img{
+    width: 70px;
+    height: 70px;
+    margin-left: 5px;
+    opacity: 0.5;
+}
+.mark{
+    width: 180px;
+    height: 180px;
+    background-color: #ccc;
+    opacity: .5;
+    position: absolute;
+    border-radius: 5px;
+    top: 0%;
+    left: 0%;
+    display: none;
+}
+/* 文字部分 */
+.content-right>.shop{
+    margin-left: 150px;
+    margin-top: 150px;
+}
+.content-right>.shop>.title{
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+}
+.content-right>.shop>.manufactor{
+    font-size: 16px;
+    color: #666666;
+}
+.content-right>.shop>.price{
+    color: red;
+}
+.content-right>.shop>.icon>.iconfont:not(:last-child){
+    color: #F7BA2A;
+}
+.content-right>.shop>.btn{
+    width: 120px;
+    height: 40px;
+    background-color: #F56C6C;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+.content-right>.shop>p{
+    margin-top: 20px;
+}
+
+
+
+/* 相似商品 */
+.recommend{
+    width: 85%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #000;
+    margin: 0 auto;
+}
+.section>ul>li>img{
+    width: 200px;
+    height: 200px;
+}
+.section>ul{
+    width: 1050px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.section>ul>li{
+    float: left;
+    width: 20%;
+    margin-top: 25px;
+}
+.section>ul>li>.content-title{
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+    white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.section>ul>li>.price{
+    color: red;
+    font-weight: 700;
+    line-height: 24px;
+}
+.section>ul>li>p>.label{
+    display: inline-block;
+    float: right;
+    margin-right: 15px;
+}
+.section>ul>li>p{
+    margin-top: 5px;
+}

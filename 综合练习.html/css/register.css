@@ -18,9 +18,15 @@
     height: 40px;
     margin-top: 10px;
     outline: none;
-    border: 1px solid #000000;
+    border: 1px solid #DCDFE6;
     border-radius: 5px;
 }
+
+.control>.control-btn:focus {
+    outline: none;
+    border: 1px solid #000000;
+}
+
 .username,
 .password{
     padding-left: 25px;
@@ -44,4 +50,5 @@
     position: absolute;
     left: 1%;
     top: 30%;
+    color: #DCDFE6;
 }

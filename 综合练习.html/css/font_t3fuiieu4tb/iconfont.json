@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7329645",
+      "name": "左箭头 向左 线性",
+      "font_class": "zuojiantouxiangzuoxianxing",
+      "unicode": "e512",
+      "unicode_decimal": 58642
+    },
+    {
+      "icon_id": "8359970",
+      "name": "星",
+      "font_class": "xing",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "10320854",
+      "name": "星",
+      "font_class": "xing1",
+      "unicode": "e76c",
+      "unicode_decimal": 59244
+    }
+  ]
+}

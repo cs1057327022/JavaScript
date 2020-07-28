@@ -39,7 +39,7 @@
             // 1：获取需要的数据：方法 地址 参数 回调函数
             
             var {method,data,url,success,error,async} = option
-            // console.log(method, data, url, success, error);
+            console.log(method, data, url, success, error);
 
             // 2：发送请求步骤 分四部
             // 2.1实例化对象
@@ -61,7 +61,7 @@
                 xhr.send();
                 // 2：处理响应
                 xhr.onreadystatechange = function () {
-                    if (xhr.status === 400 && xhr.readyState === 4) {
+                    if (xhr.status === 200 && xhr.readyState === 4) {
                         // 表示请求成功
                         // 获取响应数据
                         var str1 = xhr.response;
@@ -85,7 +85,7 @@
                 xhr.open(params);
 
                 xhr.onreadystatechange = function () {
-                    if (xhr.status === 400 && xhr.readyState === 4) {
+                    if (xhr.status === 200 && xhr.readyState === 4) {
                         var str1 = xhr.response;
                         success(str1)
                     } else {
